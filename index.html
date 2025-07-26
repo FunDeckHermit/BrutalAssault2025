@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Unofficial Brutal Assault Schedule</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦇</text></svg>">
     <style>
         * {
             margin: 0;
@@ -14,24 +15,46 @@
         body {
             background: linear-gradient(135deg, #0a0a0a, #1a0000, #0a0a0a);
             color: #e0e0e0;
-            min-height: 100vh;
-            padding: 15px;
+            min-height: 80vh;
             overflow-x: hidden;
             /* overflow-y: hidden; Removed to prevent potential clipping */
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            /* Adjusted height calculation to account for footer height (approx 39px = 12+12+(0.75*16)) */
-            height: calc(100vh - 39px);
             display: flex;
             flex-direction: column;
+            height: 100vh; /* Ensure body takes full height */
+        }
+
+        /* Style for the star symbol */
+        .star-symbol {
+            color: #ffcc00; /* Gold color */
+            font-weight: bold;
+            font-size: 1.2em;
+            text-shadow: 0 0 2px rgba(0,0,0,0.3);
+        }
+
+        /* Style for the warning symbol */
+        .warning-symbol {
+            color: #ff6666; /* Red color */
+            font-weight: bold;
+            font-size: 1.2em;
+            animation: pulse 2s infinite; /* Optional pulsing animation */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            /* Adjust height to account for the new static header */
+            height: calc(100vh - 105px - 60px); /* Subtract approximate height of next-favorite bar */
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; /* Allow container to grow */
         }
         header {
             text-align: center;
             padding: 15px 0;
             margin-bottom: 15px;
             flex-shrink: 0;
+            position: relative; /* To position the close button */
         }
         h1 {
             font-size: 1.8rem;
@@ -47,6 +70,93 @@
             margin: 0 auto;
             color: #cc6666;
         }
+        /* --- Close Button for Header --- */
+        .header-close-btn {
+            position: absolute;
+            top: -8px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: #ff6666;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            transition: background-color 0.2s ease;
+        }
+        .header-close-btn:hover {
+            background-color: rgba(255, 100, 100, 0.2);
+        }
+        /* --- End of Close Button --- */
+        /* --- Restore Header Icon --- */
+        .restore-header-icon {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background: rgba(30, 0, 0, 0.9);
+            border: 1px solid rgba(255, 50, 50, 0.3);
+            color: #ff6666;
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(100, 0, 0, 0.3);
+            z-index: 1000; /* High z-index to stay on top */
+            transition: all 0.2s ease;
+        }
+        .restore-header-icon:hover {
+            background: rgba(50, 0, 0, 0.95);
+            transform: scale(1.1);
+        }
+        /* --- End of Restore Header Icon --- */
+        /* --- New Static Next Favorite Bar --- */
+        .next-favorite-bar {
+            background: rgba(30, 0, 0, 0.9); /* Slightly different background */
+            border-top: 1px solid rgba(255, 50, 50, 0.3);
+            border-bottom: 1px solid rgba(255, 50, 50, 0.3);
+            padding: 8px 15px;
+            text-align: center;
+            flex-shrink: 0; /* Prevent it from shrinking */
+            box-shadow: 0 0 10px rgba(100, 0, 0, 0.3);
+            z-index: 10; /* Ensure it's above other content if needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer; /* Indicate it's clickable */
+            transition: background-color 0.2s ease; /* Smooth background change on hover */
+        }
+        .next-favorite-bar:hover {
+             background: rgba(50, 0, 0, 0.95); /* Darker background on hover */
+        }
+        .next-favorite-label-static {
+            font-size: 20px; /* Larger star */
+            color: #ffcc00;
+            margin-right: 10px;
+            text-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
+        }
+        .next-favorite-content-static {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #ffcccc;
+            display: flex;
+            gap: 10px; /* Space between artist, time, stage */
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+            justify-content: center;
+        }
+        .next-favorite-artist-static {
+            font-weight: 600;
+        }
+        .next-favorite-time-static {
+            color: #ff9999;
+        }
+        .next-favorite-stage-static {
+            color: #ffaa66;
+        }
+        /* --- End of New Static Next Favorite Bar --- */
         .swipe-container {
             position: relative;
             width: 100%;
@@ -60,7 +170,7 @@
         .stage-cards-container {
             display: flex;
             height: 100%;
-            transition: transform 0.4s ease;
+            transition: transform 0.4s ease; /* This transition is for user swipes/keyboard nav */
         }
         .stage-card {
             min-width: 100%;
@@ -101,40 +211,550 @@
             text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
             flex-grow: 1;
         }
-        .next-favorite {
-            display: flex;
-            align-items: center;
-            background: rgba(60, 0, 0, 0.6);
-            border-radius: 8px;
-            padding: 6px 10px;
-            border: 1px solid rgba(255, 100, 100, 0.3);
-            max-width: 50%;
+
+        /* --- Stage-Specific Color Schemes --- */
+        /* Stage 1 - Muted Blue */
+        .stage-card.stage-1 .stage-header {
+            border-bottom-color: rgba(100, 150, 200, 0.5);
         }
-        .next-favorite-label {
-            font-size: 0px;
-            color: #cc7a7a;
-            margin-right: 8px;
-            height: 75px;
+        .stage-card.stage-1 .stage-icon {
+            background: rgba(40, 60, 80, 0.6);
+            border-color: rgba(100, 150, 200, 0.3);
+            color: #a0c0e0;
         }
-        .next-favorite-content {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #ffcccc;
-            word-wrap: break-word;
-            text-align: center;
-            overflow: hidden;
-            display: grid;
-            justify-items: center;
+        .stage-card.stage-1 .stage-name {
+            color: #a0c0e0;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.3);
         }
-        .next-favorite-artist {
-            font-weight: 600;
+        .stage-card.stage-1 .performances-list .performance-item {
+            background: rgba(30, 40, 50, 0.4);
+            border-color: rgba(100, 150, 200, 0.1);
         }
-        .next-favorite-time {
-            color: #ff9999;
-            margin: 0 4px;
+        .stage-card.stage-1 .performances-list .performance-item:hover {
+            background: rgba(40, 55, 70, 0.6);
+            border-color: rgba(100, 150, 200, 0.3);
         }
-        .next-favorite-stage {
-            color: #ffaa66;
+        .stage-card.stage-1 .performances-list .performance-item.favorite {
+            background: rgba(50, 70, 90, 0.6);
+            border-color: rgba(130, 180, 230, 0.5);
+            box-shadow: 0 0 15px rgba(100, 150, 200, 0.3);
+        }
+        .stage-card.stage-1 .performances-list .performance-item.conflict {
+            background: rgba(60, 80, 100, 0.6);
+            border-color: rgba(150, 180, 200, 0.5);
+            box-shadow: 0 0 15px rgba(120, 160, 200, 0.3);
+        }
+        .stage-card.stage-1 .performances-list .performance-item .artist-name {
+            color: #b0d0f0;
+        }
+        .stage-card.stage-1 .performances-list .performance-item.favorite .artist-name {
+            color: #c0e0ff;
+        }
+        .stage-card.stage-1 .performances-list .performance-item.conflict .artist-name {
+            color: #d0e8ff;
+        }
+        .stage-card.stage-1 .performances-list .performance-item .time-slot {
+            color: #a0b8d8;
+        }
+        .stage-card.stage-1 .performances-list .performance-item.favorite .time-slot {
+            color: #b8d0f0;
+        }
+        .stage-card.stage-1 .performances-list .performance-item.conflict .time-slot {
+            color: #c8e0ff;
+        }
+        .stage-card.stage-1 .performances-list .performance-item .time-icon {
+            color: #80a0c8;
+        }
+        .stage-card.stage-1 .performances-list .performance-item.favorite .time-icon {
+            color: #98b8d8;
+        }
+        .stage-card.stage-1 .performances-list .performance-item.conflict .time-icon {
+            color: #a8c8e8;
+        }
+        .stage-card.stage-1 .performances-list .performance-item .date-info {
+            color: #90a8c8;
+        }
+        .stage-card.stage-1 .performances-list .performance-item.favorite .date-info {
+            color: #a8c0e0;
+        }
+        .stage-card.stage-1 .performances-list .performance-item.conflict .date-info {
+            color: #b8d0f0;
+        }
+        .stage-card.stage-1 .performances-list .performance-item .genre {
+            color: #a0b8d8;
+        }
+        .stage-card.stage-1 .performances-list .performance-item.favorite .genre {
+            color: #b8d0f0;
+        }
+        .stage-card.stage-1 .performances-list .performance-item.conflict .genre {
+            color: #c8e0ff;
+        }
+        .stage-card.stage-1 .performances-list .performance-item.past {
+            background: rgba(20, 25, 30, 0.3);
+            border-color: rgba(80, 100, 120, 0.1);
+        }
+        .stage-card.stage-1 .performances-list .performance-item.past:hover {
+            background: rgba(30, 35, 40, 0.4);
+            border-color: rgba(90, 110, 130, 0.2);
+        }
+        .stage-card.stage-1 .performances-list .performance-item.past .artist-name {
+            color: #8898aa;
+        }
+        .stage-card.stage-1 .performances-list .performance-item.past .time-slot {
+            color: #778899;
+        }
+        .stage-card.stage-1 .performances-list .performance-item.past .time-icon {
+            color: #667788;
+        }
+        .stage-card.stage-1 .performances-list .performance-item.past .date-info {
+            color: #667788;
+        }
+        .stage-card.stage-1 .performances-list .performance-item.past .genre {
+            color: #778899;
+        }
+        .stage-card.stage-1 .performances-list .performance-item.past.favorite {
+            background: rgba(40, 50, 60, 0.4);
+            border-color: rgba(100, 130, 170, 0.3);
+        }
+        .stage-card.stage-1 .performances-list .performance-item.past.conflict {
+            background: rgba(50, 60, 70, 0.4);
+            border-color: rgba(120, 140, 160, 0.3);
+        }
+
+
+        /* Stage 2 - Muted Green */
+        .stage-card.stage-2 .stage-header {
+            border-bottom-color: rgba(120, 180, 120, 0.5);
+        }
+        .stage-card.stage-2 .stage-icon {
+            background: rgba(40, 60, 40, 0.6);
+            border-color: rgba(120, 180, 120, 0.3);
+            color: #a0d8a0;
+        }
+        .stage-card.stage-2 .stage-name {
+            color: #a0d8a0;
+            text-shadow: 0 0 10px rgba(120, 180, 120, 0.3);
+        }
+        .stage-card.stage-2 .performances-list .performance-item {
+            background: rgba(30, 45, 30, 0.4);
+            border-color: rgba(120, 180, 120, 0.1);
+        }
+        .stage-card.stage-2 .performances-list .performance-item:hover {
+            background: rgba(40, 60, 40, 0.6);
+            border-color: rgba(120, 180, 120, 0.3);
+        }
+        .stage-card.stage-2 .performances-list .performance-item.favorite {
+            background: rgba(50, 80, 50, 0.6);
+            border-color: rgba(150, 210, 150, 0.5);
+            box-shadow: 0 0 15px rgba(120, 180, 120, 0.3);
+        }
+        .stage-card.stage-2 .performances-list .performance-item.conflict {
+            background: rgba(60, 90, 60, 0.6);
+            border-color: rgba(170, 200, 170, 0.5);
+            box-shadow: 0 0 15px rgba(140, 190, 140, 0.3);
+        }
+        .stage-card.stage-2 .performances-list .performance-item .artist-name {
+            color: #b0e0b0;
+        }
+        .stage-card.stage-2 .performances-list .performance-item.favorite .artist-name {
+            color: #c0f0c0;
+        }
+        .stage-card.stage-2 .performances-list .performance-item.conflict .artist-name {
+            color: #d0f8d0;
+        }
+        .stage-card.stage-2 .performances-list .performance-item .time-slot {
+            color: #a0c8a0;
+        }
+        .stage-card.stage-2 .performances-list .performance-item.favorite .time-slot {
+            color: #b8d8b8;
+        }
+        .stage-card.stage-2 .performances-list .performance-item.conflict .time-slot {
+            color: #c8e8c8;
+        }
+        .stage-card.stage-2 .performances-list .performance-item .time-icon {
+            color: #80b080;
+        }
+        .stage-card.stage-2 .performances-list .performance-item.favorite .time-icon {
+            color: #98c098;
+        }
+        .stage-card.stage-2 .performances-list .performance-item.conflict .time-icon {
+            color: #a8d0a8;
+        }
+        .stage-card.stage-2 .performances-list .performance-item .date-info {
+            color: #90a890;
+        }
+        .stage-card.stage-2 .performances-list .performance-item.favorite .date-info {
+            color: #a8c0a8;
+        }
+        .stage-card.stage-2 .performances-list .performance-item.conflict .date-info {
+            color: #b8d8b8;
+        }
+        .stage-card.stage-2 .performances-list .performance-item .genre {
+            color: #a0c8a0;
+        }
+        .stage-card.stage-2 .performances-list .performance-item.favorite .genre {
+            color: #b8d8b8;
+        }
+        .stage-card.stage-2 .performances-list .performance-item.conflict .genre {
+            color: #c8e8c8;
+        }
+        .stage-card.stage-2 .performances-list .performance-item.past {
+            background: rgba(20, 30, 20, 0.3);
+            border-color: rgba(80, 120, 80, 0.1);
+        }
+        .stage-card.stage-2 .performances-list .performance-item.past:hover {
+            background: rgba(30, 40, 30, 0.4);
+            border-color: rgba(90, 130, 90, 0.2);
+        }
+        .stage-card.stage-2 .performances-list .performance-item.past .artist-name {
+            color: #889988;
+        }
+        .stage-card.stage-2 .performances-list .performance-item.past .time-slot {
+            color: #778877;
+        }
+        .stage-card.stage-2 .performances-list .performance-item.past .time-icon {
+            color: #667766;
+        }
+        .stage-card.stage-2 .performances-list .performance-item.past .date-info {
+            color: #667766;
+        }
+        .stage-card.stage-2 .performances-list .performance-item.past .genre {
+            color: #778877;
+        }
+        .stage-card.stage-2 .performances-list .performance-item.past.favorite {
+            background: rgba(40, 60, 40, 0.4);
+            border-color: rgba(100, 160, 100, 0.3);
+        }
+        .stage-card.stage-2 .performances-list .performance-item.past.conflict {
+            background: rgba(50, 70, 50, 0.4);
+            border-color: rgba(120, 170, 120, 0.3);
+        }
+
+
+        /* Stage 3 - Muted Purple */
+        .stage-card.stage-3 .stage-header {
+            border-bottom-color: rgba(180, 120, 200, 0.5);
+        }
+        .stage-card.stage-3 .stage-icon {
+            background: rgba(60, 40, 65, 0.6);
+            border-color: rgba(180, 120, 200, 0.3);
+            color: #d0a0e8;
+        }
+        .stage-card.stage-3 .stage-name {
+            color: #d0a0e8;
+            text-shadow: 0 0 10px rgba(180, 120, 200, 0.3);
+        }
+        .stage-card.stage-3 .performances-list .performance-item {
+            background: rgba(45, 30, 50, 0.4);
+            border-color: rgba(180, 120, 200, 0.1);
+        }
+        .stage-card.stage-3 .performances-list .performance-item:hover {
+            background: rgba(60, 40, 65, 0.6);
+            border-color: rgba(180, 120, 200, 0.3);
+        }
+        .stage-card.stage-3 .performances-list .performance-item.favorite {
+            background: rgba(80, 50, 90, 0.6);
+            border-color: rgba(210, 150, 230, 0.5);
+            box-shadow: 0 0 15px rgba(180, 120, 200, 0.3);
+        }
+        .stage-card.stage-3 .performances-list .performance-item.conflict {
+            background: rgba(90, 60, 100, 0.6);
+            border-color: rgba(200, 170, 220, 0.5);
+            box-shadow: 0 0 15px rgba(190, 140, 210, 0.3);
+        }
+        .stage-card.stage-3 .performances-list .performance-item .artist-name {
+            color: #e0b0f0;
+        }
+        .stage-card.stage-3 .performances-list .performance-item.favorite .artist-name {
+            color: #f0c8ff;
+        }
+        .stage-card.stage-3 .performances-list .performance-item.conflict .artist-name {
+            color: #f8d8ff;
+        }
+        .stage-card.stage-3 .performances-list .performance-item .time-slot {
+            color: #c8a0d8;
+        }
+        .stage-card.stage-3 .performances-list .performance-item.favorite .time-slot {
+            color: #d8b8e8;
+        }
+        .stage-card.stage-3 .performances-list .performance-item.conflict .time-slot {
+            color: #e8c8f8;
+        }
+        .stage-card.stage-3 .performances-list .performance-item .time-icon {
+            color: #b080c0;
+        }
+        .stage-card.stage-3 .performances-list .performance-item.favorite .time-icon {
+            color: #c898d8;
+        }
+        .stage-card.stage-3 .performances-list .performance-item.conflict .time-icon {
+            color: #d8a8e8;
+        }
+        .stage-card.stage-3 .performances-list .performance-item .date-info {
+            color: #a890b8;
+        }
+        .stage-card.stage-3 .performances-list .performance-item.favorite .date-info {
+            color: #c0a8d0;
+        }
+        .stage-card.stage-3 .performances-list .performance-item.conflict .date-info {
+            color: #d0b8e0;
+        }
+        .stage-card.stage-3 .performances-list .performance-item .genre {
+            color: #c8a0d8;
+        }
+        .stage-card.stage-3 .performances-list .performance-item.favorite .genre {
+            color: #d8b8e8;
+        }
+        .stage-card.stage-3 .performances-list .performance-item.conflict .genre {
+            color: #e8c8f8;
+        }
+        .stage-card.stage-3 .performances-list .performance-item.past {
+            background: rgba(30, 20, 35, 0.3);
+            border-color: rgba(120, 80, 130, 0.1);
+        }
+        .stage-card.stage-3 .performances-list .performance-item.past:hover {
+            background: rgba(40, 30, 45, 0.4);
+            border-color: rgba(130, 90, 140, 0.2);
+        }
+        .stage-card.stage-3 .performances-list .performance-item.past .artist-name {
+            color: #998899;
+        }
+        .stage-card.stage-3 .performances-list .performance-item.past .time-slot {
+            color: #887788;
+        }
+        .stage-card.stage-3 .performances-list .performance-item.past .time-icon {
+            color: #776677;
+        }
+        .stage-card.stage-3 .performances-list .performance-item.past .date-info {
+            color: #776677;
+        }
+        .stage-card.stage-3 .performances-list .performance-item.past .genre {
+            color: #887788;
+        }
+        .stage-card.stage-3 .performances-list .performance-item.past.favorite {
+            background: rgba(60, 40, 65, 0.4);
+            border-color: rgba(160, 100, 180, 0.3);
+        }
+        .stage-card.stage-3 .performances-list .performance-item.past.conflict {
+            background: rgba(70, 50, 75, 0.4);
+            border-color: rgba(170, 120, 190, 0.3);
+        }
+
+
+        /* Stage 4 - Muted Orange */
+        .stage-card.stage-4 .stage-header {
+            border-bottom-color: rgba(220, 150, 100, 0.5);
+        }
+        .stage-card.stage-4 .stage-icon {
+            background: rgba(70, 50, 35, 0.6);
+            border-color: rgba(220, 150, 100, 0.3);
+            color: #f0c090;
+        }
+        .stage-card.stage-4 .stage-name {
+            color: #f0c090;
+            text-shadow: 0 0 10px rgba(220, 150, 100, 0.3);
+        }
+        .stage-card.stage-4 .performances-list .performance-item {
+            background: rgba(55, 40, 25, 0.4);
+            border-color: rgba(220, 150, 100, 0.1);
+        }
+        .stage-card.stage-4 .performances-list .performance-item:hover {
+            background: rgba(70, 50, 35, 0.6);
+            border-color: rgba(220, 150, 100, 0.3);
+        }
+        .stage-card.stage-4 .performances-list .performance-item.favorite {
+            background: rgba(90, 65, 40, 0.6);
+            border-color: rgba(240, 180, 130, 0.5);
+            box-shadow: 0 0 15px rgba(220, 150, 100, 0.3);
+        }
+        .stage-card.stage-4 .performances-list .performance-item.conflict {
+            background: rgba(100, 75, 50, 0.6);
+            border-color: rgba(230, 190, 160, 0.5);
+            box-shadow: 0 0 15px rgba(225, 170, 120, 0.3);
+        }
+        .stage-card.stage-4 .performances-list .performance-item .artist-name {
+            color: #f8d0a0;
+        }
+        .stage-card.stage-4 .performances-list .performance-item.favorite .artist-name {
+            color: #ffe0b8;
+        }
+        .stage-card.stage-4 .performances-list .performance-item.conflict .artist-name {
+            color: #fff0c8;
+        }
+        .stage-card.stage-4 .performances-list .performance-item .time-slot {
+            color: #e0b890;
+        }
+        .stage-card.stage-4 .performances-list .performance-item.favorite .time-slot {
+            color: #f0c8a8;
+        }
+        .stage-card.stage-4 .performances-list .performance-item.conflict .time-slot {
+            color: #ffd8b8;
+        }
+        .stage-card.stage-4 .performances-list .performance-item .time-icon {
+            color: #d0a070;
+        }
+        .stage-card.stage-4 .performances-list .performance-item.favorite .time-icon {
+            color: #e0b888;
+        }
+        .stage-card.stage-4 .performances-list .performance-item.conflict .time-icon {
+            color: #f0c898;
+        }
+        .stage-card.stage-4 .performances-list .performance-item .date-info {
+            color: #c8a880;
+        }
+        .stage-card.stage-4 .performances-list .performance-item.favorite .date-info {
+            color: #d8b898;
+        }
+        .stage-card.stage-4 .performances-list .performance-item.conflict .date-info {
+            color: #e8c8a8;
+        }
+        .stage-card.stage-4 .performances-list .performance-item .genre {
+            color: #e0b890;
+        }
+        .stage-card.stage-4 .performances-list .performance-item.favorite .genre {
+            color: #f0c8a8;
+        }
+        .stage-card.stage-4 .performances-list .performance-item.conflict .genre {
+            color: #ffd8b8;
+        }
+        .stage-card.stage-4 .performances-list .performance-item.past {
+            background: rgba(40, 30, 20, 0.3);
+            border-color: rgba(150, 100, 70, 0.1);
+        }
+        .stage-card.stage-4 .performances-list .performance-item.past:hover {
+            background: rgba(50, 40, 30, 0.4);
+            border-color: rgba(160, 110, 80, 0.2);
+        }
+        .stage-card.stage-4 .performances-list .performance-item.past .artist-name {
+            color: #aa9988;
+        }
+        .stage-card.stage-4 .performances-list .performance-item.past .time-slot {
+            color: #998877;
+        }
+        .stage-card.stage-4 .performances-list .performance-item.past .time-icon {
+            color: #887766;
+        }
+        .stage-card.stage-4 .performances-list .performance-item.past .date-info {
+            color: #887766;
+        }
+        .stage-card.stage-4 .performances-list .performance-item.past .genre {
+            color: #998877;
+        }
+        .stage-card.stage-4 .performances-list .performance-item.past.favorite {
+            background: rgba(70, 50, 35, 0.4);
+            border-color: rgba(190, 130, 90, 0.3);
+        }
+        .stage-card.stage-4 .performances-list .performance-item.past.conflict {
+            background: rgba(80, 60, 45, 0.4);
+            border-color: rgba(200, 140, 100, 0.3);
+        }
+
+
+        /* Stage 5 - Muted Teal */
+        .stage-card.stage-5 .stage-header {
+            border-bottom-color: rgba(100, 180, 180, 0.5);
+        }
+        .stage-card.stage-5 .stage-icon {
+            background: rgba(35, 60, 60, 0.6);
+            border-color: rgba(100, 180, 180, 0.3);
+            color: #90d8d8;
+        }
+        .stage-card.stage-5 .stage-name {
+            color: #90d8d8;
+            text-shadow: 0 0 10px rgba(100, 180, 180, 0.3);
+        }
+        .stage-card.stage-5 .performances-list .performance-item {
+            background: rgba(25, 45, 45, 0.4);
+            border-color: rgba(100, 180, 180, 0.1);
+        }
+        .stage-card.stage-5 .performances-list .performance-item:hover {
+            background: rgba(35, 60, 60, 0.6);
+            border-color: rgba(100, 180, 180, 0.3);
+        }
+        .stage-card.stage-5 .performances-list .performance-item.favorite {
+            background: rgba(45, 80, 80, 0.6);
+            border-color: rgba(130, 210, 210, 0.5);
+            box-shadow: 0 0 15px rgba(100, 180, 180, 0.3);
+        }
+        .stage-card.stage-5 .performances-list .performance-item.conflict {
+            background: rgba(55, 90, 90, 0.6);
+            border-color: rgba(160, 200, 200, 0.5);
+            box-shadow: 0 0 15px rgba(130, 190, 190, 0.3);
+        }
+        .stage-card.stage-5 .performances-list .performance-item .artist-name {
+            color: #a0e0e0;
+        }
+        .stage-card.stage-5 .performances-list .performance-item.favorite .artist-name {
+            color: #b8f0f0;
+        }
+        .stage-card.stage-5 .performances-list .performance-item.conflict .artist-name {
+            color: #c8f8f8;
+        }
+        .stage-card.stage-5 .performances-list .performance-item .time-slot {
+            color: #80c8c8;
+        }
+        .stage-card.stage-5 .performances-list .performance-item.favorite .time-slot {
+            color: #98d8d8;
+        }
+        .stage-card.stage-5 .performances-list .performance-item.conflict .time-slot {
+            color: #a8e8e8;
+        }
+        .stage-card.stage-5 .performances-list .performance-item .time-icon {
+            color: #60b0b0;
+        }
+        .stage-card.stage-5 .performances-list .performance-item.favorite .time-icon {
+            color: #78c0c0;
+        }
+        .stage-card.stage-5 .performances-list .performance-item.conflict .time-icon {
+            color: #88d0d0;
+        }
+        .stage-card.stage-5 .performances-list .performance-item .date-info {
+            color: #70a8a8;
+        }
+        .stage-card.stage-5 .performances-list .performance-item.favorite .date-info {
+            color: #88c0c0;
+        }
+        .stage-card.stage-5 .performances-list .performance-item.conflict .date-info {
+            color: #98d8d8;
+        }
+        .stage-card.stage-5 .performances-list .performance-item .genre {
+            color: #80c8c8;
+        }
+        .stage-card.stage-5 .performances-list .performance-item.favorite .genre {
+            color: #98d8d8;
+        }
+        .stage-card.stage-5 .performances-list .performance-item.conflict .genre {
+            color: #a8e8e8;
+        }
+        .stage-card.stage-5 .performances-list .performance-item.past {
+            background: rgba(20, 35, 35, 0.3);
+            border-color: rgba(70, 120, 120, 0.1);
+        }
+        .stage-card.stage-5 .performances-list .performance-item.past:hover {
+            background: rgba(30, 45, 45, 0.4);
+            border-color: rgba(80, 130, 130, 0.2);
+        }
+        .stage-card.stage-5 .performances-list .performance-item.past .artist-name {
+            color: #889999;
+        }
+        .stage-card.stage-5 .performances-list .performance-item.past .time-slot {
+            color: #778888;
+        }
+        .stage-card.stage-5 .performances-list .performance-item.past .time-icon {
+            color: #667777;
+        }
+        .stage-card.stage-5 .performances-list .performance-item.past .date-info {
+            color: #667777;
+        }
+        .stage-card.stage-5 .performances-list .performance-item.past .genre {
+            color: #778888;
+        }
+        .stage-card.stage-5 .performances-list .performance-item.past.favorite {
+            background: rgba(40, 60, 60, 0.4);
+            border-color: rgba(90, 160, 160, 0.3);
+        }
+        .stage-card.stage-5 .performances-list .performance-item.past.conflict {
+            background: rgba(50, 70, 70, 0.4);
+            border-color: rgba(100, 170, 170, 0.3);
         }
         .performances-list {
             list-style: none;
@@ -142,6 +762,7 @@
             flex-grow: 1;
             padding-right: 8px;
             -webkit-overflow-scrolling: touch;
+            padding-top: 2px;
         }
         .performances-list::-webkit-scrollbar {
             width: 6px;
@@ -380,52 +1001,41 @@
             50% { opacity: 0.8; box-shadow: 0 0 15px rgba(255, 0, 0, 0.5); }
             100% { opacity: 0.4; box-shadow: 0 0 5px rgba(255, 0, 0, 0.3); }
         }
-        footer {
-            text-align: center;
-            padding: 12px;
-            font-size: 0.75rem;
-            opacity: 0.6;
-            color: #996666;
-            flex-shrink: 0;
-        }
-
         /* --- Media Query for Short Screens --- */
         @media (max-height: 500px) {
             /* Hide the main header (title and subtitle) */
             header {
                 display: none;
             }
-
             /* Adjust container height to fill space left by hidden header and ensure footer space */
             .container {
-                /* Recalculate height without header margin but still accounting for footer */
-                height: calc(100vh - 39px); /* Keep same footer space calculation */
+                height: calc(100vh - 70px - 60px); /* Adjust for hidden header and next-favorite bar */
             }
-
-            /* Hide the stage header (icon, name, next favorite) within each card */
+            /* Hide the stage header (icon, name) within each card */
             .stage-header {
                 display: none;
             }
-
             /* Adjust padding inside the stage card now that the header is gone */
             .stage-card {
                 padding-top: 10px; /* Reduce top padding slightly */
             }
-
             /* Optional: Adjust swipe hint position if needed */
             .swipe-hint {
                 bottom: 8px; /* Slightly closer to bottom */
             }
+            /* Adjust static next favorite bar for short screens if needed */
+             .next-favorite-content-static {
+                 font-size: 0.8rem;
+             }
         }
         /* --- End of Short Screen Rules --- */
-
         @media (min-width: 768px) {
             body {
-                padding: 20px;
+                min-height: 100vh;
             }
             /* Adjusted height calculation for larger screens (footer ~53px = 15+15+(0.8*16)) */
             .container {
-                height: calc(100vh - 53px);
+                height: calc(100vh - 20px - 60px); /* Adjust for larger header/footer and next-favorite bar */
             }
             header {
                 padding: 20px 0;
@@ -445,8 +1055,8 @@
                 padding: 20px;
             }
             .stage-header {
-                margin-bottom: 20px;
-                padding-bottom: 15px;
+                margin-bottom: 18px;
+                padding-bottom: 12px;
             }
             .stage-icon {
                 width: 50px;
@@ -457,20 +1067,18 @@
             .stage-name {
                 font-size: 1.8rem;
             }
-            .next-favorite {
-                padding: 8px 12px;
-                max-width: 60%;
+            /* --- Styles for Static Next Favorite Bar on Desktop --- */
+            .next-favorite-bar {
+                 padding: 10px 20px;
             }
-            .next-favorite-label {
-                font-size: 40px;
-                margin-right: 10px;
-                align-content: center;
+            .next-favorite-label-static {
+                font-size: 24px;
+                margin-right: 12px;
             }
-            .next-favorite-content {
-                font-size: 0.9rem;
-                display: grid;
-                justify-items: center;
+            .next-favorite-content-static {
+                font-size: 1.1rem;
             }
+            /* --- End of Desktop Styles for Static Next Favorite Bar --- */
             .performance-item {
                 padding: 12px 15px;
                 margin-bottom: 12px;
@@ -542,11 +1150,6 @@
             .loading {
                 font-size: 1.2rem;
             }
-            footer {
-                padding: 15px;
-                font-size: 0.8rem;
-            }
-
             /* Ensure short screen rule is applied if width is also met */
             @media (max-height: 500px) {
                 header {
@@ -554,7 +1157,7 @@
                 }
                 /* Recalculate for larger screen padding and footer (~53px) */
                 .container {
-                    height: calc(100vh - 53px);
+                    height: calc(100vh - 10px - 60px); /* Adjust for hidden header and next-favorite bar */
                 }
                 .stage-header {
                     display: none;
@@ -565,15 +1168,32 @@
                 .swipe-hint {
                     bottom: 10px;
                 }
+                 .next-favorite-content-static {
+                     font-size: 0.9rem;
+                 }
             }
         }
     </style>
 </head>
 <body>
+    <!-- Static Next Favorite Bar -->
+    <div class="next-favorite-bar" id="nextFavoriteBar">
+         <div class="next-favorite-label-static">★</div>
+         <div class="next-favorite-content-static" id="staticNextFavoriteContent">
+             Loading favorites...
+         </div>
+    </div>
+    <!-- End Static Next Favorite Bar -->
+    <!-- Restore Header Icon (Hidden by default) -->
+    <div class="restore-header-icon" id="restoreHeaderIcon" title="Restore Header" style="display: none;">
+        ↺
+    </div>
+    <!-- End Restore Header Icon -->
     <div class="container">
-        <header>
-            <h1>Brutal Assault Schedule</h1>
-            <p class="subtitle">Swipe left/right to switch stages, or arrow left/right. Tap performances to favorite</p>
+        <header id="mainHeader">
+            <button class="header-close-btn" id="closeHeaderBtn" title="Close Header">×</button>
+            <h1>Unofficial Brutal Assault Schedule</h1>
+            <p class="subtitle">Navigate stages by swiping or arrows. Tap performances to favorite them. (<span class="star-symbol">★</span>) The top bar shows your next favorite. Conflicts (<span class="warning-symbol">⚠</span>) highlight scheduling clashes. (<span class="footprints-symbol">👣</span>) means you gotta run to your next show. Double-tap conflicts to show pair. This website updates every 5 minutes.</p>
         </header>
         <div class="swipe-container">
             <div class="stage-cards-container" id="stageCardsContainer">
@@ -581,9 +1201,6 @@
             </div>
             <div class="swipe-hint">← Swipe →</div>
         </div>
-        <footer>
-            <p>© 2025 Unofficial Brutal Assault Schedule </p>
-        </footer>
     </div>
     <script>
         // State management
@@ -602,6 +1219,9 @@
         let favoritePerformances = new Set(); // Store favorite performance IDs
         // Current time for comparison
         const currentTime = new Date();
+        // --- Cookie Names ---
+        const HEADER_HIDDEN_COOKIE = 'headerHidden';
+        // --- End Cookie Names ---
         // Cookie management functions
         function setCookie(name, value, days) {
             const expires = new Date();
@@ -618,6 +1238,48 @@
             }
             return null;
         }
+        // --- New Functions for Header State ---
+        function hideHeader() {
+            const header = document.getElementById('mainHeader');
+            const restoreIcon = document.getElementById('restoreHeaderIcon');
+            if (header && restoreIcon) {
+                header.style.display = 'none';
+                restoreIcon.style.display = 'flex'; // Show restore icon
+                setCookie(HEADER_HIDDEN_COOKIE, 'true', 30); // Save state for 30 days
+                adjustContainerHeight(); // Adjust container height
+            }
+        }
+        function showHeader() {
+            const header = document.getElementById('mainHeader');
+            const restoreIcon = document.getElementById('restoreHeaderIcon');
+            if (header && restoreIcon) {
+                header.style.display = ''; // Reset to default display
+                restoreIcon.style.display = 'none'; // Hide restore icon
+                setCookie(HEADER_HIDDEN_COOKIE, 'false', 30); // Save state for 30 days
+                adjustContainerHeight(); // Adjust container height
+            }
+        }
+        function isHeaderHidden() {
+            const cookieValue = getCookie(HEADER_HIDDEN_COOKIE);
+            return cookieValue === 'true';
+        }
+        function adjustContainerHeight() {
+            // Recalculate container height based on current header visibility
+            const header = document.getElementById('mainHeader');
+            const nextFavoriteBar = document.querySelector('.next-favorite-bar');
+            const container = document.querySelector('.container');
+            if (container && nextFavoriteBar) {
+                const nextFavoriteBarHeight = nextFavoriteBar.offsetHeight || 60; // Fallback if not rendered yet
+                let headerHeight = 0;
+                // Only add header height if it's currently displayed
+                if (header && window.getComputedStyle(header).display !== 'none') {
+                    headerHeight = header.offsetHeight || 105; // Fallback if not rendered yet
+                }
+                // Apply the new height calculation
+                container.style.height = `calc(100vh - ${headerHeight}px - ${nextFavoriteBarHeight}px)`;
+            }
+        }
+        // --- End of New Header State Functions ---
         // Load favorites from cookie
         function loadFavoritesFromCookie() {
             try {
@@ -639,6 +1301,29 @@
                 setCookie('favoritePerformances', favoritesJSON, 30); // Save for 30 days
             } catch (error) {
                 console.error('Error saving favorites to cookie:', error);
+            }
+        }
+        // Load current stage index from cookie
+        function loadStageIndexFromCookie() {
+            try {
+                const stageIndexCookie = getCookie('currentStageIndex');
+                if (stageIndexCookie !== null) {
+                    const index = parseInt(stageIndexCookie, 10);
+                    if (!isNaN(index) && index >= 0 && index < stageNames.length) { // Check if index is valid
+                         return index;
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading stage index from cookie:', error);
+            }
+            return 0; // Default to first stage if cookie is invalid or missing
+        }
+        // Save current stage index to cookie
+        function saveStageIndexToCookie(index) {
+            try {
+                setCookie('currentStageIndex', index.toString(), 30); // Save for 30 days
+            } catch (error) {
+                console.error('Error saving stage index to cookie:', error);
             }
         }
         // Function to format time in 24h format
@@ -705,6 +1390,7 @@
             return timeDiff >= 0 && timeDiff <= 5 * 60 * 1000; // 0 to 5 minutes
         }
         // Function to check for conflicts with other favorites
+        // Returns the conflicting performance and stage if found
         function checkForConflicts(currentPerformance, currentStageName) {
             // Get all favorite performances except the current one
             const favoritePerformancesData = [];
@@ -748,6 +1434,39 @@
             }
             return { hasConflict: false, isWalking: false };
         }
+        // --- New Function: Navigate to Conflicting Performance ---
+        function navigateToConflict(targetPerformanceId, targetStageName) {
+            // 1. Switch to the correct stage
+            const stageIndex = stageNames.indexOf(targetStageName);
+            if (stageIndex !== -1) {
+                switchStage(stageIndex);
+                // 2. After a short delay to allow the stage switch animation,
+                //    scroll the specific performance into view
+                setTimeout(() => {
+                    const performanceElement = document.querySelector(`.performance-item[data-id="${targetPerformanceId}"]`);
+                    if (performanceElement) {
+                         // Find the scrollable list within the current stage card
+                         const currentStageCard = document.querySelector(`.stage-card:nth-child(${stageIndex + 1})`);
+                         const scrollableList = currentStageCard ? currentStageCard.querySelector('.performances-list') : null;
+                         if (scrollableList) {
+                             // Scroll the list to bring the performance item into view
+                             performanceElement.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+                             // Optional: Add a temporary highlight or animation to the item
+                             performanceElement.style.transform = 'scale(1.02)';
+                             performanceElement.style.transition = 'transform 0.3s ease';
+                             setTimeout(() => {
+                                 performanceElement.style.transform = '';
+                             }, 1000);
+                         }
+                    } else {
+                        console.warn(`Performance element with ID ${targetPerformanceId} not found on stage ${targetStageName}.`);
+                    }
+                }, 450); // Slightly longer than the 0.4s CSS transition
+            } else {
+                 console.warn(`Stage ${targetStageName} not found.`);
+            }
+        }
+        // --- End of New Navigation Function ---
         // Function to find the next favorite performance
         function findNextFavorite() {
             const now = new Date();
@@ -773,21 +1492,69 @@
             }
             return { nextFavorite, nextStage };
         }
-        // Function to update next favorite display
-        function updateNextFavoriteDisplay() {
+        // --- New Function to Handle Navigation ---
+        function navigateToNextFavorite() {
+             const { nextFavorite, nextStage } = findNextFavorite();
+            if (nextFavorite && nextStage) {
+                // 1. Switch to the correct stage
+                const stageIndex = stageNames.indexOf(nextStage);
+                if (stageIndex !== -1) {
+                    switchStage(stageIndex);
+                    // 2. After a short delay to allow the stage switch animation,
+                    //    scroll the specific performance into view
+                    setTimeout(() => {
+                        const performanceElement = document.querySelector(`.performance-item[data-id="${nextFavorite.id}"]`);
+                        if (performanceElement) {
+                             // Find the scrollable list within the current stage card
+                             const currentStageCard = document.querySelector(`.stage-card:nth-child(${stageIndex + 1})`);
+                             const scrollableList = currentStageCard ? currentStageCard.querySelector('.performances-list') : null;
+                             if (scrollableList) {
+                                 // Scroll the list to bring the performance item into view
+                                 performanceElement.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+                                 // Optional: Add a temporary highlight or animation to the item
+                                 performanceElement.style.transform = 'scale(1.02)';
+                                 performanceElement.style.transition = 'transform 0.3s ease';
+                                 setTimeout(() => {
+                                     performanceElement.style.transform = '';
+                                 }, 1000);
+                             }
+                        } else {
+                            console.warn(`Performance element with ID ${nextFavorite.id} not found.`);
+                        }
+                    }, 450); // Slightly longer than the 0.4s CSS transition
+                }
+            } else {
+                 console.log("No upcoming favorite found to navigate to.");
+                 // Optional: Provide user feedback if there's no next favorite
+                 const staticNextFavoriteElement = document.getElementById('staticNextFavoriteContent');
+                 if (staticNextFavoriteElement) {
+                     const originalText = staticNextFavoriteElement.textContent;
+                     staticNextFavoriteElement.textContent = "No upcoming favorites to navigate to.";
+                     staticNextFavoriteElement.style.color = "#ff6666"; // Reddish color for warning
+                     setTimeout(() => {
+                         staticNextFavoriteElement.textContent = originalText;
+                         staticNextFavoriteElement.style.color = ""; // Reset color
+                         updateStaticNextFavoriteDisplay(); // Restore original content
+                     }, 2000);
+                 }
+            }
+        }
+        // --- End of New Navigation Function ---
+        // Function to update next favorite display (NEW STATIC VERSION)
+        function updateStaticNextFavoriteDisplay() {
             const { nextFavorite, nextStage } = findNextFavorite();
-            // Update next favorite display in all stage headers
-            document.querySelectorAll('.next-favorite-content').forEach(element => {
+            const staticNextFavoriteElement = document.getElementById('staticNextFavoriteContent');
+            if (staticNextFavoriteElement) {
                 if (nextFavorite && nextStage) {
-                    element.innerHTML = `
-                        <span class="next-favorite-artist">${nextFavorite.artist_name}</span>
-                        <span class="next-favorite-time">${formatTime(nextFavorite.date_from_iso8601)}</span>
-                        <span class="next-favorite-stage">${nextStage}</span>
+                    staticNextFavoriteElement.innerHTML = `
+                        <span class="next-favorite-artist-static">${nextFavorite.artist_name}</span>
+                        <span class="next-favorite-time-static">${formatTime(nextFavorite.date_from_iso8601)}</span>
+                        <span class="next-favorite-stage-static">${nextStage}</span>
                     `;
                 } else {
-                    element.textContent = 'No upcoming favorites';
+                    staticNextFavoriteElement.textContent = 'No upcoming favorites';
                 }
-            });
+            }
         }
         // Function to update conflict indicators for all performances
         function updateConflictIndicators() {
@@ -838,13 +1605,21 @@
             saveFavoritesToCookie();
             // Update conflict indicators
             updateConflictIndicators();
-            // Update next favorite display
-            updateNextFavoriteDisplay();
+            // Update the STATIC next favorite display
+            updateStaticNextFavoriteDisplay();
         }
-        // Function to create stage cards
+        // Function to create stage cards (REMOVED next-favorite from here)
         function createStageCard(stageName, performances) {
             const stageCard = document.createElement('div');
             stageCard.className = 'stage-card';
+
+            // --- Add Stage-Specific Class ---
+            // Map stage names to indices (1-10) for color schemes
+            // This assumes stage names are consistent and ordered
+            const stageIndex = stageNames.indexOf(stageName) %5 + 1; // Modulo 5 to cycle if >5 stages
+            stageCard.classList.add(`stage-${stageIndex}`);
+            // --- End Add Stage-Specific Class ---
+
             // Get first letter for icon
             const iconLetter = stageName.charAt(0);
             // Filter performances
@@ -913,26 +1688,12 @@
                     `;
                 }
             });
-            // Get next favorite for initial display
-            const { nextFavorite, nextStage } = findNextFavorite();
-            let nextFavoriteHTML = '';
-            if (nextFavorite && nextStage) {
-                nextFavoriteHTML = `
-                    <span class="next-favorite-artist">${nextFavorite.artist_name}</span>
-                    <span class="next-favorite-time">${formatTime(nextFavorite.date_from_iso8601)}</span>
-                    <span class="next-favorite-stage">${nextStage}</span>
-                `;
-            } else {
-                nextFavoriteHTML = 'No upcoming favorites';
-            }
+            // Stage card HTML WITHOUT the next-favorite element in the header
             stageCard.innerHTML = `
                 <div class="stage-header">
                     <div class="stage-icon">${iconLetter}</div>
                     <h2 class="stage-name">${stageName}</h2>
-                    <div class="next-favorite">
-                        <div class="next-favorite-label">★</div>
-                        <div class="next-favorite-content">${nextFavoriteHTML}</div>
-                    </div>
+                    <!-- Next favorite element removed from here -->
                 </div>
                 <ul class="performances-list">
                     ${performancesHTML}
@@ -941,6 +1702,7 @@
             // Add click event listeners to performance items
             const performanceItems = stageCard.querySelectorAll('.performance-item');
             performanceItems.forEach(item => {
+                // Single click/tap for favorite toggle
                 item.addEventListener('click', (e) => {
                     // Prevent click from interfering with swipe gestures
                     if (Math.abs(distX) < 10 && Math.abs(distY) < 10) {
@@ -949,6 +1711,30 @@
                         toggleFavorite(performanceId, item, stageName);
                     }
                 });
+                // --- Add Double Click/Double Tap Event Listener ---
+                item.addEventListener('dblclick', (e) => {
+                    // Check if the item is currently marked as having a conflict
+                    if (item.classList.contains('conflict')) {
+                        const performanceId = parseInt(item.getAttribute('data-id'));
+                        const stageName = item.getAttribute('data-stage');
+                        // Find the conflicting performance details
+                        // We need to get the performance object from festivalData
+                        const performance = festivalData[stageName]?.find(p => p.id === performanceId);
+                        if (performance) {
+                            const conflictResult = checkForConflicts(performance, stageName);
+                            if (conflictResult.hasConflict && conflictResult.conflictingPerformance && conflictResult.conflictingStage) {
+                                // Navigate to the conflicting performance
+                                navigateToConflict(conflictResult.conflictingPerformance.id, conflictResult.conflictingStage);
+                            } else {
+                                // This shouldn't happen if the class is 'conflict'
+                                console.warn("Double-clicked a 'conflict' item, but no conflict found via checkForConflicts.");
+                            }
+                        } else {
+                            console.error("Performance not found in festivalData for conflict navigation.");
+                        }
+                    }
+                });
+                // --- End of Double Click/Double Tap Event Listener ---
             });
             return stageCard;
         }
@@ -958,6 +1744,8 @@
             currentStageIndex = index;
             const container = document.getElementById('stageCardsContainer');
             container.style.transform = `translateX(-${currentStageIndex * 100}%)`;
+            // Save the current stage index to cookie
+            saveStageIndexToCookie(currentStageIndex);
         }
         // Enhanced swipe handling functions
         function handleTouchStart(e) {
@@ -1019,32 +1807,62 @@
                 const stageCard = createStageCard(stageName, performances);
                 container.appendChild(stageCard);
             });
-            // Set initial position
-            container.style.transform = `translateX(0%)`;
+            // --- Apply Initial Transform WITHOUT Animation ---
+            // Ensure the loaded index is within bounds (important after loading stageNames)
+            if (currentStageIndex >= stageNames.length) {
+                currentStageIndex = 0; // Fallback if cookie index is invalid
+            }
+            // Apply the initial transform directly, bypassing switchStage's animation
+            container.style.transform = `translateX(-${currentStageIndex * 100}%)`;
+            // --- End of Change ---
             // Update conflict indicators after rendering
             setTimeout(updateConflictIndicators, 100);
+            // Adjust container height after rendering to account for initial header state
+            setTimeout(adjustContainerHeight, 100);
         }
-        // Load data from JSON file
+        // Load schedule data
         async function loadSchedule() {
-            try {
-                const response = await fetch('schedule_by_stage.json');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                festivalData = await response.json();
-                stageNames = Object.keys(festivalData);
-                renderStages();
-                updateNextFavoriteDisplay();
-            } catch (error) {
-                console.error('Error loading schedule:', error);
-                document.getElementById('stageCardsContainer').innerHTML =
-                    '<div class="loading">Error loading schedule. Please try again later.</div>';
+        try {
+            // Append a timestamp query parameter to bust the cache
+            const url = `schedule_by_stage.json?t=${new Date().getTime()}`;
+            const response = await fetch(url);
+            if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
             }
+            festivalData = await response.json();
+            // --- Rest of your existing loadSchedule logic starts here ---
+            stageNames = Object.keys(festivalData);
+            if (stageNames.length === 0) {
+                throw new Error('No stages found in schedule data.');
+            }
+            // Load the current stage index *after* stageNames is populated
+            currentStageIndex = loadStageIndexFromCookie();
+            renderStages();
+            // Update the STATIC next favorite display after loading data
+            updateStaticNextFavoriteDisplay();
+            // --- Rest of your existing loadSchedule logic ends here ---
+        } catch (error) {
+            console.error('Error loading schedule:', error);
+            document.getElementById('stageCardsContainer').innerHTML = '<div class="loading">Error loading schedule. Please try again later.</div>';
+            // Also update the static display on error
+            document.getElementById('staticNextFavoriteContent').textContent = 'Error loading favorites.';
+        }
         }
         // Initialize the page
         document.addEventListener('DOMContentLoaded', () => {
             // Load favorites from cookie
             loadFavoritesFromCookie();
+            // --- Check and Apply Header State from Cookie ---
+            if (isHeaderHidden()) {
+                // Hide header and show restore icon on initial load if cookie says so
+                const header = document.getElementById('mainHeader');
+                const restoreIcon = document.getElementById('restoreHeaderIcon');
+                if (header && restoreIcon) {
+                    header.style.display = 'none';
+                    restoreIcon.style.display = 'flex';
+                }
+            }
+            // --- End of Header State Check ---
             // Load schedule data
             loadSchedule();
             // Add swipe event listeners
@@ -1054,6 +1872,25 @@
             swipeContainer.addEventListener('touchend', handleTouchEnd, false);
             // Add keyboard navigation
             document.addEventListener('keydown', handleKeyDown);
+            // --- Add Click Listener to Next Favorite Bar ---
+            const nextFavoriteBar = document.getElementById('nextFavoriteBar');
+            if (nextFavoriteBar) {
+                nextFavoriteBar.addEventListener('click', navigateToNextFavorite);
+            }
+            // --- Add Click Listener to Close Header Button ---
+            const closeHeaderBtn = document.getElementById('closeHeaderBtn');
+            if (closeHeaderBtn) {
+                closeHeaderBtn.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent triggering parent events if any
+                    hideHeader();
+                });
+            }
+            // --- Add Click Listener to Restore Header Icon ---
+            const restoreHeaderIcon = document.getElementById('restoreHeaderIcon');
+            if (restoreHeaderIcon) {
+                restoreHeaderIcon.addEventListener('click', showHeader);
+            }
+            // --- End of Click Listeners ---
         });
     </script>
 </body>
