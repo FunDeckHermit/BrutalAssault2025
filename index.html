@@ -11,31 +11,28 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
         body {
             background: linear-gradient(135deg, #0a0a0a, #1a0000, #0a0a0a);
             color: #e0e0e0;
             min-height: 100vh;
             padding: 15px;
             overflow-x: hidden;
-            overflow-y: hidden;
+            /* overflow-y: hidden; Removed to prevent potential clipping */
         }
-        
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            height: calc(100vh - 30px);
+            /* Adjusted height calculation to account for footer height (approx 39px = 12+12+(0.75*16)) */
+            height: calc(100vh - 39px);
             display: flex;
             flex-direction: column;
         }
-        
         header {
             text-align: center;
             padding: 15px 0;
             margin-bottom: 15px;
             flex-shrink: 0;
         }
-        
         h1 {
             font-size: 1.8rem;
             margin-bottom: 8px;
@@ -43,7 +40,6 @@
             color: #ff4d4d;
             letter-spacing: 1px;
         }
-        
         .subtitle {
             font-size: 0.9rem;
             opacity: 0.8;
@@ -51,7 +47,6 @@
             margin: 0 auto;
             color: #cc6666;
         }
-        
         .swipe-container {
             position: relative;
             width: 100%;
@@ -62,13 +57,11 @@
             border: 1px solid rgba(255, 0, 0, 0.2);
             margin-bottom: 15px;
         }
-        
         .stage-cards-container {
             display: flex;
             height: 100%;
             transition: transform 0.4s ease;
         }
-        
         .stage-card {
             min-width: 100%;
             height: 100%;
@@ -79,7 +72,6 @@
             flex-direction: column;
             box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.7);
         }
-        
         .stage-header {
             display: flex;
             align-items: center;
@@ -88,7 +80,6 @@
             border-bottom: 2px solid rgba(255, 50, 50, 0.3);
             flex-shrink: 0;
         }
-        
         .stage-icon {
             width: 40px;
             height: 40px;
@@ -103,7 +94,6 @@
             color: #ff6666;
             border: 1px solid rgba(255, 50, 50, 0.3);
         }
-        
         .stage-name {
             font-size: 1.5rem;
             font-weight: 700;
@@ -111,7 +101,6 @@
             text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
             flex-grow: 1;
         }
-        
         .next-favorite {
             display: flex;
             align-items: center;
@@ -121,38 +110,32 @@
             border: 1px solid rgba(255, 100, 100, 0.3);
             max-width: 50%;
         }
-        
         .next-favorite-label {
-            font-size: 40px;
+            font-size: 0px;
             color: #cc7a7a;
             margin-right: 8px;
-            white-space: nowrap;
+            height: 75px;
         }
-        
         .next-favorite-content {
             font-size: 0.8rem;
             font-weight: 600;
             color: #ffcccc;
-            white-space: nowrap;
+            word-wrap: break-word;
+            text-align: center;
             overflow: hidden;
-            text-overflow: ellipsis;
             display: grid;
-            justify-items: center;            
+            justify-items: center;
         }
-        
         .next-favorite-artist {
             font-weight: 600;
         }
-        
         .next-favorite-time {
             color: #ff9999;
             margin: 0 4px;
         }
-        
         .next-favorite-stage {
             color: #ffaa66;
         }
-        
         .performances-list {
             list-style: none;
             overflow-y: auto;
@@ -160,21 +143,17 @@
             padding-right: 8px;
             -webkit-overflow-scrolling: touch;
         }
-        
         .performances-list::-webkit-scrollbar {
             width: 6px;
         }
-        
         .performances-list::-webkit-scrollbar-track {
             background: rgba(0, 0, 0, 0.3);
             border-radius: 3px;
         }
-        
         .performances-list::-webkit-scrollbar-thumb {
             background: rgba(255, 50, 50, 0.5);
             border-radius: 3px;
         }
-        
         .performance-item {
             background: rgba(40, 0, 0, 0.4);
             border-radius: 8px;
@@ -187,14 +166,12 @@
             position: relative;
             cursor: pointer;
         }
-        
         .performance-item:hover {
             background: rgba(60, 0, 0, 0.6);
             border-color: rgba(255, 50, 50, 0.3);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(100, 0, 0, 0.3);
         }
-        
         .performance-item.past {
             background: rgba(20, 20, 20, 0.3);
             border-color: rgba(100, 100, 100, 0.1);
@@ -202,34 +179,28 @@
             padding: 6px 10px;
             margin-bottom: 6px;
         }
-        
         .performance-item.past:hover {
             background: rgba(30, 30, 30, 0.4);
             border-color: rgba(100, 100, 100, 0.2);
         }
-        
         .performance-item.favorite {
             background: rgba(80, 20, 20, 0.6);
             border-color: rgba(255, 100, 100, 0.5);
             box-shadow: 0 0 15px rgba(255, 50, 50, 0.3);
         }
-        
         .performance-item.past.favorite {
             background: rgba(60, 30, 30, 0.4);
             border-color: rgba(200, 100, 100, 0.3);
         }
-        
         .performance-item.conflict {
             background: rgba(100, 60, 20, 0.6);
             border-color: rgba(255, 150, 50, 0.5);
             box-shadow: 0 0 15px rgba(255, 100, 0, 0.3);
         }
-        
         .performance-item.past.conflict {
             background: rgba(80, 50, 30, 0.4);
             border-color: rgba(200, 120, 60, 0.3);
         }
-        
         .artist-name {
             font-size: 1rem;
             font-weight: 600;
@@ -237,7 +208,6 @@
             color: #ff9999;
             text-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
         }
-        
         .performance-item.past .artist-name {
             color: #999999;
             text-shadow: none;
@@ -245,15 +215,12 @@
             margin-bottom: 0;
             margin-left: 8px;
         }
-        
         .performance-item.favorite .artist-name {
             color: #ffcccc;
         }
-        
         .performance-item.conflict .artist-name {
             color: #ffcc99;
         }
-        
         .time-slot {
             display: flex;
             align-items: center;
@@ -261,51 +228,41 @@
             opacity: 0.9;
             color: #cc9999;
         }
-        
         .performance-item.past .time-slot {
             color: #888888;
             opacity: 0.7;
             font-size: 0.75rem;
         }
-        
         .performance-item.favorite .time-slot {
             color: #ffaaaa;
         }
-        
         .performance-item.conflict .time-slot {
             color: #ffbb66;
         }
-        
         .time-icon {
             margin-right: 6px;
             font-size: 0.9rem;
             color: #ff6666;
         }
-        
         .performance-item.past .time-icon {
             color: #666666;
             font-size: 0.75rem;
             margin-right: 4px;
         }
-        
         .performance-item.favorite .time-icon {
             color: #ff8888;
         }
-        
         .performance-item.conflict .time-icon {
             color: #ff9955;
         }
-        
         .time-range {
             display: flex;
             gap: 6px;
             font-weight: 500;
         }
-        
         .time-separator {
             opacity: 0.7;
         }
-        
         .date-info {
             font-size: 0.75rem;
             opacity: 0.7;
@@ -313,24 +270,19 @@
             white-space: nowrap;
             color: #cc7a7a;
         }
-        
         .performance-item.past .date-info {
             color: #777777;
             margin-left: 6px;
         }
-        
         .performance-item.favorite .date-info {
             color: #ff9999;
         }
-        
         .performance-item.conflict .date-info {
             color: #ffaa66;
         }
-        
         .performance-content {
             flex-grow: 1;
         }
-        
         .genre {
             position: absolute;
             right: 12px;
@@ -349,24 +301,20 @@
             white-space: nowrap;
             text-align: right;
         }
-        
         .performance-item.past .genre {
             font-size: 0.6rem;
             right: 10px;
             opacity: 0.25;
             width: 25%;
         }
-        
         .performance-item.favorite .genre {
             color: #ff9999;
             opacity: 0.4;
         }
-        
         .performance-item.conflict .genre {
             color: #ffaa66;
             opacity: 0.4;
         }
-        
         .favorite-indicator {
             position: absolute;
             top: 5px;
@@ -377,11 +325,9 @@
             transition: opacity 0.2s ease;
             text-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
         }
-        
         .performance-item.favorite .favorite-indicator {
             opacity: 1;
         }
-        
         .conflict-indicator {
             position: absolute;
             top: 5px;
@@ -392,11 +338,9 @@
             transition: opacity 0.2s ease;
             text-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
         }
-        
         .performance-item.conflict .conflict-indicator {
             opacity: 1;
         }
-        
         .walking-indicator {
             position: absolute;
             top: 5px;
@@ -406,11 +350,9 @@
             opacity: 0;
             transition: opacity 0.2s ease;
         }
-        
         .performance-item.walking .walking-indicator {
             opacity: 1;
         }
-        
         .swipe-hint {
             position: absolute;
             bottom: 12px;
@@ -425,7 +367,6 @@
             border: 1px solid rgba(255, 50, 50, 0.3);
             color: #ff9999;
         }
-        
         .loading {
             display: flex;
             justify-content: center;
@@ -434,13 +375,11 @@
             font-size: 1.1rem;
             color: #ff6666;
         }
-        
         @keyframes pulse {
             0% { opacity: 0.4; box-shadow: 0 0 5px rgba(255, 0, 0, 0.3); }
             50% { opacity: 0.8; box-shadow: 0 0 15px rgba(255, 0, 0, 0.5); }
             100% { opacity: 0.4; box-shadow: 0 0 5px rgba(255, 0, 0, 0.3); }
         }
-        
         footer {
             text-align: center;
             padding: 12px;
@@ -449,161 +388,183 @@
             color: #996666;
             flex-shrink: 0;
         }
-        
+
+        /* --- Media Query for Short Screens --- */
+        @media (max-height: 500px) {
+            /* Hide the main header (title and subtitle) */
+            header {
+                display: none;
+            }
+
+            /* Adjust container height to fill space left by hidden header and ensure footer space */
+            .container {
+                /* Recalculate height without header margin but still accounting for footer */
+                height: calc(100vh - 39px); /* Keep same footer space calculation */
+            }
+
+            /* Hide the stage header (icon, name, next favorite) within each card */
+            .stage-header {
+                display: none;
+            }
+
+            /* Adjust padding inside the stage card now that the header is gone */
+            .stage-card {
+                padding-top: 10px; /* Reduce top padding slightly */
+            }
+
+            /* Optional: Adjust swipe hint position if needed */
+            .swipe-hint {
+                bottom: 8px; /* Slightly closer to bottom */
+            }
+        }
+        /* --- End of Short Screen Rules --- */
+
         @media (min-width: 768px) {
             body {
                 padding: 20px;
             }
-            
+            /* Adjusted height calculation for larger screens (footer ~53px = 15+15+(0.8*16)) */
             .container {
-                height: calc(100vh - 40px);
+                height: calc(100vh - 53px);
             }
-            
             header {
                 padding: 20px 0;
                 margin-bottom: 20px;
             }
-            
             h1 {
                 font-size: 2.2rem;
                 margin-bottom: 10px;
             }
-            
             .subtitle {
                 font-size: 1.1rem;
             }
-            
             .swipe-container {
                 margin-bottom: 20px;
             }
-            
             .stage-card {
                 padding: 20px;
             }
-            
             .stage-header {
                 margin-bottom: 20px;
                 padding-bottom: 15px;
             }
-            
             .stage-icon {
                 width: 50px;
                 height: 50px;
                 font-size: 1.5rem;
                 margin-right: 15px;
             }
-            
             .stage-name {
                 font-size: 1.8rem;
             }
-            
             .next-favorite {
                 padding: 8px 12px;
                 max-width: 60%;
             }
-            
             .next-favorite-label {
                 font-size: 40px;
                 margin-right: 10px;
+                align-content: center;
             }
-            
             .next-favorite-content {
                 font-size: 0.9rem;
                 display: grid;
                 justify-items: center;
             }
-            
             .performance-item {
                 padding: 12px 15px;
                 margin-bottom: 12px;
             }
-            
             .performance-item.past {
                 padding: 8px 12px;
                 margin-bottom: 8px;
             }
-            
             .artist-name {
                 font-size: 1.1rem;
                 margin-bottom: 5px;
             }
-            
             .performance-item.past .artist-name {
                 font-size: 0.9rem;
                 margin-left: 10px;
             }
-            
             .time-slot {
                 font-size: 0.9rem;
             }
-            
             .performance-item.past .time-slot {
                 font-size: 0.8rem;
             }
-            
             .time-icon {
                 margin-right: 8px;
                 font-size: 1rem;
             }
-            
             .performance-item.past .time-icon {
                 font-size: 0.8rem;
                 margin-right: 5px;
             }
-            
             .date-info {
                 font-size: 0.8rem;
                 margin-left: 10px;
             }
-            
             .performance-item.past .date-info {
                 margin-left: 8px;
             }
-            
             .genre {
                 font-size: 0.8rem;
                 right: 15px;
                 opacity: 0.35;
                 width: 25%;
             }
-            
             .performance-item.past .genre {
                 font-size: 0.7rem;
                 right: 12px;
                 width: 20%;
             }
-            
             .favorite-indicator {
                 font-size: 15px;
                 top: 6px;
                 right: 6px;
             }
-            
             .conflict-indicator {
                 font-size: 15px;
                 top: 6px;
                 right: 24px;
             }
-            
             .walking-indicator {
                 font-size: 15px;
                 top: 6px;
                 right: 42px;
             }
-            
             .swipe-hint {
                 bottom: 15px;
                 padding: 8px 15px;
                 font-size: 0.8rem;
             }
-            
             .loading {
                 font-size: 1.2rem;
             }
-            
             footer {
                 padding: 15px;
                 font-size: 0.8rem;
+            }
+
+            /* Ensure short screen rule is applied if width is also met */
+            @media (max-height: 500px) {
+                header {
+                    display: none;
+                }
+                /* Recalculate for larger screen padding and footer (~53px) */
+                .container {
+                    height: calc(100vh - 53px);
+                }
+                .stage-header {
+                    display: none;
+                }
+                .stage-card {
+                   padding-top: 15px; /* Slightly more padding than base short rule */
+                }
+                .swipe-hint {
+                    bottom: 10px;
+                }
             }
         }
     </style>
@@ -612,21 +573,18 @@
     <div class="container">
         <header>
             <h1>Brutal Assault Schedule</h1>
-            <p class="subtitle">Swipe left/right to switch stages, up/down to scroll. Tap performances to favorite</p>
+            <p class="subtitle">Swipe left/right to switch stages, or arrow left/right. Tap performances to favorite</p>
         </header>
-        
         <div class="swipe-container">
             <div class="stage-cards-container" id="stageCardsContainer">
                 <div class="loading">Loading schedule...</div>
             </div>
             <div class="swipe-hint">← Swipe →</div>
         </div>
-        
         <footer>
-            <p>© 2025 Brutal Assault Schedule | All times in local venue time</p>
+            <p>© 2025 Unofficial Brutal Assault Schedule </p>
         </footer>
     </div>
-
     <script>
         // State management
         let currentStageIndex = 0;
@@ -642,17 +600,14 @@
         let startTime = 0;
         let scrollableElement = null;
         let favoritePerformances = new Set(); // Store favorite performance IDs
-        
         // Current time for comparison
         const currentTime = new Date();
-
         // Cookie management functions
         function setCookie(name, value, days) {
             const expires = new Date();
             expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
             document.cookie = `${name}=${encodeURIComponent(value)};expires=${expires.toUTCString()};path=/`;
         }
-
         function getCookie(name) {
             const nameEQ = name + "=";
             const ca = document.cookie.split(';');
@@ -663,7 +618,6 @@
             }
             return null;
         }
-
         // Load favorites from cookie
         function loadFavoritesFromCookie() {
             try {
@@ -677,7 +631,6 @@
                 favoritePerformances = new Set();
             }
         }
-
         // Save favorites to cookie
         function saveFavoritesToCookie() {
             try {
@@ -688,20 +641,17 @@
                 console.error('Error saving favorites to cookie:', error);
             }
         }
-
         // Function to format time in 24h format
         function formatTime(isoString) {
             const date = new Date(isoString);
             return date.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'});
         }
-
         // Function to format date
         function formatDate(isoString) {
             const date = new Date(isoString);
             const options = { weekday: 'short', day: 'numeric', month: 'short' };
             return date.toLocaleDateString('en-GB', options);
         }
-
         // Function to get date without time (for comparison)
         function getDateWithoutTime(dateString) {
             const date = new Date(dateString);
@@ -711,32 +661,28 @@
             }
             return new Date(date.getFullYear(), date.getMonth(), date.getDate());
         }
-
         // Function to check if performance is today
         function isTodayPerformance(startTime) {
             const performanceDate = getDateWithoutTime(startTime);
             const today = getDateWithoutTime(currentTime);
             return performanceDate.getTime() === today.getTime();
         }
-
         // Function to check if performance is in the past
         function isPastPerformance(startTime) {
             const performanceStartDate = new Date(startTime);
             return performanceStartDate < currentTime;
         }
-
         // Function to check if there are any performances today
         function hasTodayPerformances(performances) {
-            return performances.some(performance => 
+            return performances.some(performance =>
                 isTodayPerformance(performance.date_from_iso8601)
             );
         }
-
         // Function to filter performances (today only or all if no today performances)
         function filterPerformances(performances) {
             if (hasTodayPerformances(performances)) {
                 // Show only today's performances
-                return performances.filter(performance => 
+                return performances.filter(performance =>
                     isTodayPerformance(performance.date_from_iso8601)
                 );
             } else {
@@ -744,30 +690,24 @@
                 return performances;
             }
         }
-
         // Function to check if two time ranges overlap
         function timeRangesOverlap(start1, end1, start2, end2) {
             return start1 < end2 && start2 < end1;
         }
-
         // Function to check if two performances are within walking distance (0-5 minutes between)
         function isWalkingDistance(performance1, performance2, stage1, stage2) {
             // Only check if they're on different stages
             if (stage1 === stage2) return false;
-            
             const end1 = new Date(performance1.date_to_iso8601).getTime();
             const start2 = new Date(performance2.date_from_iso8601).getTime();
-            
             // Check if performance2 starts right after performance1 ends (within 5 minutes)
             const timeDiff = start2 - end1;
             return timeDiff >= 0 && timeDiff <= 5 * 60 * 1000; // 0 to 5 minutes
         }
-
         // Function to check for conflicts with other favorites
         function checkForConflicts(currentPerformance, currentStageName) {
             // Get all favorite performances except the current one
             const favoritePerformancesData = [];
-            
             // Collect all favorite performances from all stages
             for (const [stageName, performances] of Object.entries(festivalData)) {
                 const filteredPerformances = filterPerformances(performances);
@@ -780,15 +720,12 @@
                     }
                 });
             }
-            
             // Check for time conflicts and walking distance
             const currentStart = new Date(currentPerformance.date_from_iso8601).getTime();
             const currentEnd = new Date(currentPerformance.date_to_iso8601).getTime();
-            
             for (const fav of favoritePerformancesData) {
                 const favStart = new Date(fav.performance.date_from_iso8601).getTime();
                 const favEnd = new Date(fav.performance.date_to_iso8601).getTime();
-                
                 // Check for conflicts
                 if (timeRangesOverlap(currentStart, currentEnd, favStart, favEnd)) {
                     return {
@@ -798,7 +735,6 @@
                         isWalking: false
                     };
                 }
-                
                 // Check for walking distance
                 if (isWalkingDistance(currentPerformance, fav.performance, currentStageName, fav.stage) ||
                     isWalkingDistance(fav.performance, currentPerformance, fav.stage, currentStageName)) {
@@ -810,17 +746,14 @@
                     };
                 }
             }
-            
             return { hasConflict: false, isWalking: false };
         }
-
         // Function to find the next favorite performance
         function findNextFavorite() {
             const now = new Date();
             let nextFavorite = null;
             let nextTime = null;
             let nextStage = null;
-            
             // Collect all favorite performances
             for (const [stageName, performances] of Object.entries(festivalData)) {
                 const filteredPerformances = filterPerformances(performances);
@@ -838,14 +771,11 @@
                     }
                 });
             }
-            
             return { nextFavorite, nextStage };
         }
-
         // Function to update next favorite display
         function updateNextFavoriteDisplay() {
             const { nextFavorite, nextStage } = findNextFavorite();
-            
             // Update next favorite display in all stage headers
             document.querySelectorAll('.next-favorite-content').forEach(element => {
                 if (nextFavorite && nextStage) {
@@ -859,14 +789,12 @@
                 }
             });
         }
-
         // Function to update conflict indicators for all performances
         function updateConflictIndicators() {
             // Remove all conflict and walking classes first
             document.querySelectorAll('.performance-item').forEach(item => {
                 item.classList.remove('conflict', 'walking');
             });
-            
             // Check each favorite performance for conflicts and walking distance
             for (const [stageName, performances] of Object.entries(festivalData)) {
                 const filteredPerformances = filterPerformances(performances);
@@ -877,7 +805,6 @@
                             // Find and mark the conflicting performances
                             const performanceElement = document.querySelector(`.performance-item[data-id="${performance.id}"]`);
                             const conflictingElement = document.querySelector(`.performance-item[data-id="${conflictResult.conflictingPerformance.id}"]`);
-                            
                             if (performanceElement) {
                                 if (conflictResult.hasConflict) {
                                     performanceElement.classList.add('conflict');
@@ -897,11 +824,9 @@
                 });
             }
         }
-
         // Function to toggle favorite status
         function toggleFavorite(performanceId, element, stageName) {
             const wasFavorite = favoritePerformances.has(performanceId);
-            
             if (wasFavorite) {
                 favoritePerformances.delete(performanceId);
                 element.classList.remove('favorite');
@@ -909,35 +834,27 @@
                 favoritePerformances.add(performanceId);
                 element.classList.add('favorite');
             }
-            
             // Save to cookie whenever favorites change
             saveFavoritesToCookie();
-            
             // Update conflict indicators
             updateConflictIndicators();
-            
             // Update next favorite display
             updateNextFavoriteDisplay();
         }
-
         // Function to create stage cards
         function createStageCard(stageName, performances) {
             const stageCard = document.createElement('div');
             stageCard.className = 'stage-card';
-            
             // Get first letter for icon
             const iconLetter = stageName.charAt(0);
-            
             // Filter performances
             const filteredPerformances = filterPerformances(performances);
-            
             let performancesHTML = '';
             filteredPerformances.forEach(performance => {
                 const isPast = isPastPerformance(performance.date_from_iso8601);
                 const isFavorite = favoritePerformances.has(performance.id);
                 const pastClass = isPast ? 'past' : '';
                 const favoriteClass = isFavorite ? 'favorite' : '';
-                
                 // Check for conflicts and walking distance (this is for initial rendering)
                 let conflictClass = '';
                 let walkingClass = '';
@@ -949,9 +866,7 @@
                         walkingClass = 'walking';
                     }
                 }
-                
                 const combinedClass = `${pastClass} ${favoriteClass} ${conflictClass} ${walkingClass}`;
-                
                 if (isPast) {
                     // Single line for past performances
                     performancesHTML += `
@@ -998,7 +913,6 @@
                     `;
                 }
             });
-            
             // Get next favorite for initial display
             const { nextFavorite, nextStage } = findNextFavorite();
             let nextFavoriteHTML = '';
@@ -1011,7 +925,6 @@
             } else {
                 nextFavoriteHTML = 'No upcoming favorites';
             }
-            
             stageCard.innerHTML = `
                 <div class="stage-header">
                     <div class="stage-icon">${iconLetter}</div>
@@ -1025,7 +938,6 @@
                     ${performancesHTML}
                 </ul>
             `;
-            
             // Add click event listeners to performance items
             const performanceItems = stageCard.querySelectorAll('.performance-item');
             performanceItems.forEach(item => {
@@ -1038,19 +950,15 @@
                     }
                 });
             });
-            
             return stageCard;
         }
-
         // Function to switch stage
         function switchStage(index) {
             if (index < 0 || index >= stageNames.length) return;
-            
             currentStageIndex = index;
             const container = document.getElementById('stageCardsContainer');
             container.style.transform = `translateX(-${currentStageIndex * 100}%)`;
         }
-
         // Enhanced swipe handling functions
         function handleTouchStart(e) {
             const touchobj = e.changedTouches[0];
@@ -1059,32 +967,27 @@
             startTime = new Date().getTime();
             distX = 0;
             distY = 0;
-            
             // Store the scrollable element (the performances list)
             const target = e.target;
             scrollableElement = target.closest('.performances-list');
         }
-
         function handleTouchMove(e) {
             // Allow vertical scrolling to proceed normally
             // Only prevent horizontal scrolling that would interfere with stage switching
             const touchobj = e.changedTouches[0];
             distX = touchobj.pageX - startX;
             distY = touchobj.pageY - startY;
-            
             // If we're primarily scrolling vertically, let the browser handle it
             // If we're primarily swiping horizontally, prevent default to enable stage switching
             if (Math.abs(distX) > Math.abs(distY) && Math.abs(distX) > 10) {
                 e.preventDefault();
             }
         }
-
         function handleTouchEnd(e) {
             const touchobj = e.changedTouches[0];
             distX = touchobj.pageX - startX;
             distY = touchobj.pageY - startY;
             const elapsedTime = new Date().getTime() - startTime;
-            
             // Only handle horizontal swipes for stage switching
             if (elapsedTime <= allowedTime) {
                 // Horizontal swipe - switch stages (only if predominantly horizontal)
@@ -1099,7 +1002,6 @@
                 }
             }
         }
-
         // Keyboard navigation
         function handleKeyDown(e) {
             if (e.key === 'ArrowLeft') {
@@ -1108,25 +1010,20 @@
                 switchStage(currentStageIndex + 1);
             }
         }
-
         // Render all stages
         function renderStages() {
             const container = document.getElementById('stageCardsContainer');
             container.innerHTML = '';
-            
             stageNames.forEach(stageName => {
                 const performances = festivalData[stageName];
                 const stageCard = createStageCard(stageName, performances);
                 container.appendChild(stageCard);
             });
-            
             // Set initial position
             container.style.transform = `translateX(0%)`;
-            
             // Update conflict indicators after rendering
             setTimeout(updateConflictIndicators, 100);
         }
-
         // Load data from JSON file
         async function loadSchedule() {
             try {
@@ -1140,25 +1037,21 @@
                 updateNextFavoriteDisplay();
             } catch (error) {
                 console.error('Error loading schedule:', error);
-                document.getElementById('stageCardsContainer').innerHTML = 
+                document.getElementById('stageCardsContainer').innerHTML =
                     '<div class="loading">Error loading schedule. Please try again later.</div>';
             }
         }
-
         // Initialize the page
         document.addEventListener('DOMContentLoaded', () => {
             // Load favorites from cookie
             loadFavoritesFromCookie();
-            
             // Load schedule data
             loadSchedule();
-            
             // Add swipe event listeners
             const swipeContainer = document.querySelector('.swipe-container');
             swipeContainer.addEventListener('touchstart', handleTouchStart, false);
             swipeContainer.addEventListener('touchmove', handleTouchMove, { passive: false });
             swipeContainer.addEventListener('touchend', handleTouchEnd, false);
-            
             // Add keyboard navigation
             document.addEventListener('keydown', handleKeyDown);
         });
