@@ -1,0 +1,1097 @@
+{
+  "Obscure": [
+    {
+      "id": 3894,
+      "date_from_iso8601": "2025-08-05T14:40:00",
+      "date_to_iso8601": "2025-08-05T15:10:00",
+      "artist_name": "MARKED AS AN ENEMY",
+      "genre": "METALCORE / HARDCORE"
+    },
+    {
+      "id": 3895,
+      "date_from_iso8601": "2025-08-05T15:30:00",
+      "date_to_iso8601": "2025-08-05T16:00:00",
+      "artist_name": "FAÜST",
+      "genre": "THRASH METAL"
+    },
+    {
+      "id": 3896,
+      "date_from_iso8601": "2025-08-05T16:15:00",
+      "date_to_iso8601": "2025-08-05T16:50:00",
+      "artist_name": "SEE YOU IN HELL",
+      "genre": "HARDCORE PUNK"
+    },
+    {
+      "id": 3897,
+      "date_from_iso8601": "2025-08-05T17:10:00",
+      "date_to_iso8601": "2025-08-05T17:50:00",
+      "artist_name": "CUTTERRED FLESH",
+      "genre": "BRUTAL DEATH METAL"
+    },
+    {
+      "id": 3898,
+      "date_from_iso8601": "2025-08-05T18:10:00",
+      "date_to_iso8601": "2025-08-05T18:50:00",
+      "artist_name": "FUNERAL",
+      "genre": "FUNERAL DOOM"
+    },
+    {
+      "id": 3899,
+      "date_from_iso8601": "2025-08-05T19:10:00",
+      "date_to_iso8601": "2025-08-05T19:50:00",
+      "artist_name": "PAN LYNX",
+      "genre": "GRUNGE / ROCK / ALTERNATIVNí METAL"
+    },
+    {
+      "id": 3900,
+      "date_from_iso8601": "2025-08-05T20:10:00",
+      "date_to_iso8601": "2025-08-05T20:50:00",
+      "artist_name": "CARNIVORE A.D.",
+      "genre": "SPEED / THRASH METAL / CROSSOVER"
+    },
+    {
+      "id": 3901,
+      "date_from_iso8601": "2025-08-05T21:10:00",
+      "date_to_iso8601": "2025-08-05T21:55:00",
+      "artist_name": "MACABRE",
+      "genre": "MURDER METAL"
+    },
+    {
+      "id": 3906,
+      "date_from_iso8601": "2025-08-06T14:30:00",
+      "date_to_iso8601": "2025-08-06T15:05:00",
+      "artist_name": "SLEEPYTIME GORILLA MUSEUM",
+      "genre": "AVANTGARDE METAL / EXPERIMENTAL"
+    },
+    {
+      "id": 3908,
+      "date_from_iso8601": "2025-08-06T15:30:00",
+      "date_to_iso8601": "2025-08-06T16:10:00",
+      "artist_name": "3 INCHES OF BLOOD",
+      "genre": "HEAVY METAL"
+    },
+    {
+      "id": 3911,
+      "date_from_iso8601": "2025-08-06T16:40:00",
+      "date_to_iso8601": "2025-08-06T17:20:00",
+      "artist_name": "RIVERS OF NIHIL",
+      "genre": "PROGRESSIVE DEATH METAL"
+    },
+    {
+      "id": 3913,
+      "date_from_iso8601": "2025-08-06T17:50:00",
+      "date_to_iso8601": "2025-08-06T18:30:00",
+      "artist_name": "FLESHGOD APOCALYPSE",
+      "genre": "ORCHESTRAL DEATH METAL / OPERA METAL"
+    },
+    {
+      "id": 3918,
+      "date_from_iso8601": "2025-08-06T19:05:00",
+      "date_to_iso8601": "2025-08-06T19:50:00",
+      "artist_name": "SIGH",
+      "genre": "HEAVY BLACK METAL / PROGRESSIVE / AVANT-GARDE"
+    },
+    {
+      "id": 3922,
+      "date_from_iso8601": "2025-08-06T20:25:00",
+      "date_to_iso8601": "2025-08-06T21:20:00",
+      "artist_name": "ILL NIÑO",
+      "genre": "GROOVE METAL"
+    },
+    {
+      "id": 3926,
+      "date_from_iso8601": "2025-08-06T21:55:00",
+      "date_to_iso8601": "2025-08-07T22:45:00",
+      "artist_name": "ORANSSI PAZUZU",
+      "genre": "PSYCHEDELIC BLACK METAL / KRAUTROCK / KOSMISCHE-METAL"
+    },
+    {
+      "id": 3930,
+      "date_from_iso8601": "2025-08-06T23:15:00",
+      "date_to_iso8601": "2025-08-06T00:15:00",
+      "artist_name": "BETWEEN THE BURIED AND ME - SPECIAL SET: COLORS",
+      "genre": "METALCORE / PROGRESSIVE METAL"
+    },
+    {
+      "id": 3934,
+      "date_from_iso8601": "2025-08-07T00:45:00",
+      "date_to_iso8601": "2025-08-07T01:30:00",
+      "artist_name": "ORANGE GOBLIN",
+      "genre": "STONER METAL"
+    },
+    {
+      "id": 3936,
+      "date_from_iso8601": "2025-08-07T02:00:00",
+      "date_to_iso8601": "2025-08-07T02:40:00",
+      "artist_name": "HERIOT",
+      "genre": "HARDCORE / METALLIC HARDCORE"
+    },
+    {
+      "id": 3944,
+      "date_from_iso8601": "2025-08-07T14:30:00",
+      "date_to_iso8601": "2025-08-07T15:05:00",
+      "artist_name": "ZEKE",
+      "genre": "HARDCORE PUNK"
+    },
+    {
+      "id": 3946,
+      "date_from_iso8601": "2025-08-07T15:35:00",
+      "date_to_iso8601": "2025-08-07T16:10:00",
+      "artist_name": "SLOW CRUSH",
+      "genre": "SHOEGAZE / GRUNGE / SLOWCORE"
+    },
+    {
+      "id": 3948,
+      "date_from_iso8601": "2025-08-07T16:40:00",
+      "date_to_iso8601": "2025-08-07T17:20:00",
+      "artist_name": "REZN",
+      "genre": "PSYCHEDELIC DOOM / STONER METAL"
+    },
+    {
+      "id": 3951,
+      "date_from_iso8601": "2025-08-07T17:55:00",
+      "date_to_iso8601": "2025-08-07T18:45:00",
+      "artist_name": "AUGUST BURNS RED",
+      "genre": "METALCORE"
+    },
+    {
+      "id": 3955,
+      "date_from_iso8601": "2025-08-07T19:20:00",
+      "date_to_iso8601": "2025-08-08T20:05:00",
+      "artist_name": "FIT FOR A KING",
+      "genre": "METALCORE"
+    },
+    {
+      "id": 3959,
+      "date_from_iso8601": "2025-08-07T20:40:00",
+      "date_to_iso8601": "2025-08-07T21:30:00",
+      "artist_name": "DROWNING POOL",
+      "genre": "METAL / NU METAL / POST GRUNGE"
+    },
+    {
+      "id": 3964,
+      "date_from_iso8601": "2025-08-07T22:10:00",
+      "date_to_iso8601": "2025-08-07T23:05:00",
+      "artist_name": "THE KOVENANT",
+      "genre": "ELECTRONIC / INDUSTRIAL / GOTHIC METAL"
+    },
+    {
+      "id": 3968,
+      "date_from_iso8601": "2025-08-07T23:35:00",
+      "date_to_iso8601": "2025-08-07T00:25:00",
+      "artist_name": "BETWEEN THE BURIED AND ME",
+      "genre": "METALCORE / PROGRESSIVE METAL"
+    },
+    {
+      "id": 3971,
+      "date_from_iso8601": "2025-08-08T00:55:00",
+      "date_to_iso8601": "2025-08-08T01:40:00",
+      "artist_name": "ABSU",
+      "genre": "BLACK/THRASH METAL"
+    },
+    {
+      "id": 3973,
+      "date_from_iso8601": "2025-08-08T02:10:00",
+      "date_to_iso8601": "2025-08-08T02:50:00",
+      "artist_name": "FURIA",
+      "genre": "BLACK METAL / EXPERIMENTAL BLACK METAL"
+    },
+    {
+      "id": 3980,
+      "date_from_iso8601": "2025-08-08T14:30:00",
+      "date_to_iso8601": "2025-08-08T15:10:00",
+      "artist_name": "MONOLORD",
+      "genre": "STONER / DOOM METAL"
+    },
+    {
+      "id": 3983,
+      "date_from_iso8601": "2025-08-08T15:35:00",
+      "date_to_iso8601": "2025-08-08T16:15:00",
+      "artist_name": "SYLVAINE",
+      "genre": "BLACK METAL / SHOEGAZE"
+    },
+    {
+      "id": 3985,
+      "date_from_iso8601": "2025-08-08T16:40:00",
+      "date_to_iso8601": "2025-08-08T17:20:00",
+      "artist_name": "MANTAR",
+      "genre": "BLACKENED SLUDGE METAL / HARDCORE"
+    },
+    {
+      "id": 3988,
+      "date_from_iso8601": "2025-08-08T17:55:00",
+      "date_to_iso8601": "2025-08-08T18:40:00",
+      "artist_name": "PELICAN",
+      "genre": "POST-METAL"
+    },
+    {
+      "id": 3992,
+      "date_from_iso8601": "2025-08-08T19:10:00",
+      "date_to_iso8601": "2025-08-08T20:00:00",
+      "artist_name": "HÄLLAS",
+      "genre": "RETRO-ROCK  / PROGRESSIVE ROCK /"
+    },
+    {
+      "id": 3996,
+      "date_from_iso8601": "2025-08-08T20:30:00",
+      "date_to_iso8601": "2025-08-08T21:20:00",
+      "artist_name": "GAEREA",
+      "genre": "BLACK METAL"
+    },
+    {
+      "id": 4001,
+      "date_from_iso8601": "2025-08-08T22:00:00",
+      "date_to_iso8601": "2025-08-08T22:45:00",
+      "artist_name": "OBSCURE SPHINX",
+      "genre": "SLUDGE / DOOM METAL / POST-ROCK"
+    },
+    {
+      "id": 4005,
+      "date_from_iso8601": "2025-08-08T23:25:00",
+      "date_to_iso8601": "2025-08-09T00:10:00",
+      "artist_name": "THE BROWNING",
+      "genre": "RAVE METAL / DEATHCORE / METALCORE"
+    },
+    {
+      "id": 4008,
+      "date_from_iso8601": "2025-08-09T00:35:00",
+      "date_to_iso8601": "2025-08-09T01:25:00",
+      "artist_name": "TSJUDER",
+      "genre": "BLACK METAL"
+    },
+    {
+      "id": 4010,
+      "date_from_iso8601": "2025-08-09T01:50:00",
+      "date_to_iso8601": "2025-08-09T02:35:00",
+      "artist_name": "HELLRIPPER",
+      "genre": "BLACK / SPEED METAL"
+    },
+    {
+      "id": 4018,
+      "date_from_iso8601": "2025-08-09T14:30:00",
+      "date_to_iso8601": "2025-08-09T15:05:00",
+      "artist_name": "HIDEOUS DIVINITY",
+      "genre": "TECHNICAL / BRUTAL DEATH METAL"
+    },
+    {
+      "id": 4021,
+      "date_from_iso8601": "2025-08-09T15:30:00",
+      "date_to_iso8601": "2025-08-09T16:10:00",
+      "artist_name": "PROTECTOR",
+      "genre": "THRASH / DEATH METAL"
+    },
+    {
+      "id": 4023,
+      "date_from_iso8601": "2025-08-09T16:35:00",
+      "date_to_iso8601": "2025-08-09T17:15:00",
+      "artist_name": "KING WOMAN",
+      "genre": "DOOM METAL, DRONE, POST METAL"
+    },
+    {
+      "id": 4025,
+      "date_from_iso8601": "2025-08-09T17:45:00",
+      "date_to_iso8601": "2025-08-09T18:25:00",
+      "artist_name": "MALEVOLENT CREATION",
+      "genre": "DEATH METAL"
+    },
+    {
+      "id": 4030,
+      "date_from_iso8601": "2025-08-09T19:05:00",
+      "date_to_iso8601": "2025-08-09T19:55:00",
+      "artist_name": "ENVY",
+      "genre": "POST-ROCK / SCREAMO"
+    },
+    {
+      "id": 4034,
+      "date_from_iso8601": "2025-08-09T20:25:00",
+      "date_to_iso8601": "2025-08-09T21:10:00",
+      "artist_name": "ARTHUR BROWN",
+      "genre": "PSYCHEDELIC / SHOCK ROCK"
+    },
+    {
+      "id": 4038,
+      "date_from_iso8601": "2025-08-09T21:50:00",
+      "date_to_iso8601": "2025-08-09T22:40:00",
+      "artist_name": "DEFEATED SANITY",
+      "genre": "TECHNICAL BRUTAL DEATH METAL"
+    },
+    {
+      "id": 4042,
+      "date_from_iso8601": "2025-08-09T23:20:00",
+      "date_to_iso8601": "2025-08-10T00:15:00",
+      "artist_name": "BOHREN & DER CLUB OF GORE",
+      "genre": "HEROIN JAZZ"
+    },
+    {
+      "id": 4047,
+      "date_from_iso8601": "2025-08-10T00:45:00",
+      "date_to_iso8601": "2025-08-10T01:30:00",
+      "artist_name": "GOST",
+      "genre": "SYNTHWAVE"
+    },
+    {
+      "id": 4048,
+      "date_from_iso8601": "2025-08-10T02:00:00",
+      "date_to_iso8601": "2025-08-10T02:45:00",
+      "artist_name": "HELLBUTCHER",
+      "genre": "BLACK METAL"
+    }
+  ],
+  "Marshall": [
+    {
+      "id": 3902,
+      "date_from_iso8601": "2025-08-06T12:00:00",
+      "date_to_iso8601": "2025-08-06T12:30:00",
+      "artist_name": "BRUTALLY DECEASED",
+      "genre": "DEATH METAL"
+    },
+    {
+      "id": 3904,
+      "date_from_iso8601": "2025-08-06T13:15:00",
+      "date_to_iso8601": "2025-08-06T13:55:00",
+      "artist_name": "WARBRINGER",
+      "genre": "THRASH METAL"
+    },
+    {
+      "id": 3907,
+      "date_from_iso8601": "2025-08-06T14:45:00",
+      "date_to_iso8601": "2025-08-06T15:30:00",
+      "artist_name": "NE OBLIVISCARIS",
+      "genre": "EXTREME PROGRESSIVE METAL"
+    },
+    {
+      "id": 3910,
+      "date_from_iso8601": "2025-08-06T16:20:00",
+      "date_to_iso8601": "2025-08-06T17:05:00",
+      "artist_name": "SKÁLMÖLD",
+      "genre": "VIKING METAL"
+    },
+    {
+      "id": 3914,
+      "date_from_iso8601": "2025-08-06T18:05:00",
+      "date_to_iso8601": "2025-08-06T19:00:00",
+      "artist_name": "DARK ANGEL",
+      "genre": "THRASH METAL"
+    },
+    {
+      "id": 3921,
+      "date_from_iso8601": "2025-08-06T20:05:00",
+      "date_to_iso8601": "2025-08-06T21:05:00",
+      "artist_name": "DYING FETUS",
+      "genre": "TECHNICAL DEATH METAL / GRINDCORE"
+    },
+    {
+      "id": 3927,
+      "date_from_iso8601": "2025-08-06T22:20:00",
+      "date_to_iso8601": "2025-08-06T23:25:00",
+      "artist_name": "MINISTRY",
+      "genre": "INDUSTRIAL METAL"
+    },
+    {
+      "id": 3933,
+      "date_from_iso8601": "2025-08-07T00:35:00",
+      "date_to_iso8601": "2025-08-07T01:30:00",
+      "artist_name": "ROTTING CHRIST",
+      "genre": "DARK METAL / MELODIC BLACK METAL"
+    },
+    {
+      "id": 3938,
+      "date_from_iso8601": "2025-08-07T11:05:00",
+      "date_to_iso8601": "2025-08-07T11:35:00",
+      "artist_name": "FULCI",
+      "genre": "BRUTAL DEATH METAL"
+    },
+    {
+      "id": 3940,
+      "date_from_iso8601": "2025-08-07T12:20:00",
+      "date_to_iso8601": "2025-08-07T12:55:00",
+      "artist_name": "PSYCROPTIC",
+      "genre": "TECHNICAL DEATH METAL"
+    },
+    {
+      "id": 3942,
+      "date_from_iso8601": "2025-08-07T13:40:00",
+      "date_to_iso8601": "2025-08-07T14:15:00",
+      "artist_name": "HIGH PARASITE",
+      "genre": "DOOM METAL / DEATH POP"
+    },
+    {
+      "id": 3945,
+      "date_from_iso8601": "2025-08-07T15:05:00",
+      "date_to_iso8601": "2025-08-07T15:50:00",
+      "artist_name": "NILE",
+      "genre": "BRUTAL / TECHNICAL DEATH METAL"
+    },
+    {
+      "id": 3949,
+      "date_from_iso8601": "2025-08-07T16:45:00",
+      "date_to_iso8601": "2025-08-07T17:30:00",
+      "artist_name": "KUBLAI KHAN TX",
+      "genre": "BEATDOWN / HARDCORE"
+    },
+    {
+      "id": 3954,
+      "date_from_iso8601": "2025-08-07T18:35:00",
+      "date_to_iso8601": "2025-08-07T19:35:00",
+      "artist_name": "LANDMVRKS",
+      "genre": "METALCORE"
+    },
+    {
+      "id": 3960,
+      "date_from_iso8601": "2025-08-07T20:45:00",
+      "date_to_iso8601": "2025-08-07T21:45:00",
+      "artist_name": "OBITUARY",
+      "genre": "DEATH METAL"
+    },
+    {
+      "id": 3967,
+      "date_from_iso8601": "2025-08-07T23:15:00",
+      "date_to_iso8601": "2025-08-08T00:25:00",
+      "artist_name": "BLOOD FIRE DEATH: A TRIBUTE TO QUORTHON AND THE MUSIC OF BATHORY",
+      "genre": "BLACK METAL"
+    },
+    {
+      "id": 3974,
+      "date_from_iso8601": "2025-08-08T10:30:00",
+      "date_to_iso8601": "2025-08-08T11:00:00",
+      "artist_name": "GRAPHIC NATURE",
+      "genre": "NU METALCORE / METAL"
+    },
+    {
+      "id": 3976,
+      "date_from_iso8601": "2025-08-08T11:45:00",
+      "date_to_iso8601": "2025-08-08T12:20:00",
+      "artist_name": "PYREXIA",
+      "genre": "DEATH / GROOVE METAL"
+    },
+    {
+      "id": 3978,
+      "date_from_iso8601": "2025-08-08T13:05:00",
+      "date_to_iso8601": "2025-08-08T13:45:00",
+      "artist_name": "AVULSED",
+      "genre": "DEATH METAL"
+    },
+    {
+      "id": 3981,
+      "date_from_iso8601": "2025-08-08T14:35:00",
+      "date_to_iso8601": "2025-08-08T15:15:00",
+      "artist_name": "MNEMIC",
+      "genre": "POST-INDUSTRIAL METAL"
+    },
+    {
+      "id": 3984,
+      "date_from_iso8601": "2025-08-08T16:05:00",
+      "date_to_iso8601": "2025-08-08T16:50:00",
+      "artist_name": "PIG DESTROYER",
+      "genre": "GRINDCORE / EAST COAST GRINDCORE / GRIND-DEATH"
+    },
+    {
+      "id": 3987,
+      "date_from_iso8601": "2025-08-08T17:50:00",
+      "date_to_iso8601": "2025-08-08T18:40:00",
+      "artist_name": "ASPHYX",
+      "genre": "DEATH METAL"
+    },
+    {
+      "id": 3994,
+      "date_from_iso8601": "2025-08-08T19:45:00",
+      "date_to_iso8601": "2025-08-08T20:40:00",
+      "artist_name": "GRAVE",
+      "genre": "DEATH METAL"
+    },
+    {
+      "id": 3997,
+      "date_from_iso8601": "2025-08-08T20:45:00",
+      "date_to_iso8601": "2025-08-08T21:45:00",
+      "artist_name": "PARADISE LOST",
+      "genre": "GOTHIC METAL / DOOM METAL"
+    },
+    {
+      "id": 4000,
+      "date_from_iso8601": "2025-08-08T21:50:00",
+      "date_to_iso8601": "2025-08-08T23:00:00",
+      "artist_name": "MAYHEM",
+      "genre": "BLACK METAL"
+    },
+    {
+      "id": 4007,
+      "date_from_iso8601": "2025-08-09T00:30:00",
+      "date_to_iso8601": "2025-08-09T01:30:00",
+      "artist_name": "CULT OF LUNA",
+      "genre": "POST-METAL"
+    },
+    {
+      "id": 4012,
+      "date_from_iso8601": "2025-08-09T10:30:00",
+      "date_to_iso8601": "2025-08-09T11:00:00",
+      "artist_name": "BESNA",
+      "genre": "POST - BLACK METAL"
+    },
+    {
+      "id": 4014,
+      "date_from_iso8601": "2025-08-09T11:45:00",
+      "date_to_iso8601": "2025-08-09T12:20:00",
+      "artist_name": "BORN FROM PAIN",
+      "genre": "HARDCORE"
+    },
+    {
+      "id": 4016,
+      "date_from_iso8601": "2025-08-09T13:05:00",
+      "date_to_iso8601": "2025-08-09T13:45:00",
+      "artist_name": "BENIGHTED",
+      "genre": "DEATH METAL / GRINDCORE"
+    },
+    {
+      "id": 4019,
+      "date_from_iso8601": "2025-08-09T14:35:00",
+      "date_to_iso8601": "2025-08-09T15:15:00",
+      "artist_name": "HANABIE.",
+      "genre": "HARAJUKU-CORE"
+    },
+    {
+      "id": 4022,
+      "date_from_iso8601": "2025-08-09T16:05:00",
+      "date_to_iso8601": "2025-08-09T16:50:00",
+      "artist_name": "BRUJERIA",
+      "genre": "GRINDCORE / DEATH METAL"
+    },
+    {
+      "id": 4026,
+      "date_from_iso8601": "2025-08-09T17:50:00",
+      "date_to_iso8601": "2025-08-09T18:40:00",
+      "artist_name": "HARAKIRI FOR THE SKY",
+      "genre": "POST-BLACK METAL"
+    },
+    {
+      "id": 4033,
+      "date_from_iso8601": "2025-08-09T19:50:00",
+      "date_to_iso8601": "2025-08-09T20:55:00",
+      "artist_name": "AGNOSTIC FRONT",
+      "genre": "HARDCORE"
+    },
+    {
+      "id": 4040,
+      "date_from_iso8601": "2025-08-09T22:10:00",
+      "date_to_iso8601": "2025-08-09T23:25:00",
+      "artist_name": "OPETH",
+      "genre": "PROGRESSIVE METAL"
+    },
+    {
+      "id": 4046,
+      "date_from_iso8601": "2025-08-10T00:35:00",
+      "date_to_iso8601": "2025-08-10T01:30:00",
+      "artist_name": "DARK FUNERAL",
+      "genre": "BLACK METAL"
+    }
+  ],
+  "Sea Shepherd": [
+    {
+      "id": 3903,
+      "date_from_iso8601": "2025-08-06T12:35:00",
+      "date_to_iso8601": "2025-08-06T13:10:00",
+      "artist_name": "BLOOD RED THRONE",
+      "genre": "DEATH METAL"
+    },
+    {
+      "id": 3905,
+      "date_from_iso8601": "2025-08-06T14:00:00",
+      "date_to_iso8601": "2025-08-06T14:40:00",
+      "artist_name": "CRYSTAL LAKE",
+      "genre": "METALCORE, HARDCORE"
+    },
+    {
+      "id": 3909,
+      "date_from_iso8601": "2025-08-06T15:35:00",
+      "date_to_iso8601": "2025-08-06T16:15:00",
+      "artist_name": "DOPE",
+      "genre": "INDUSTRIAL METAL / NU METAL"
+    },
+    {
+      "id": 3912,
+      "date_from_iso8601": "2025-08-06T17:10:00",
+      "date_to_iso8601": "2025-08-06T18:00:00",
+      "artist_name": "THROWN",
+      "genre": "HARDCORE"
+    },
+    {
+      "id": 3917,
+      "date_from_iso8601": "2025-08-06T19:05:00",
+      "date_to_iso8601": "2025-08-06T20:00:00",
+      "artist_name": "STATIC–X",
+      "genre": "INDUSTRIAL METAL"
+    },
+    {
+      "id": 3924,
+      "date_from_iso8601": "2025-08-06T21:10:00",
+      "date_to_iso8601": "2025-08-06T22:15:00",
+      "artist_name": "MASTODON",
+      "genre": "PROGRESSIVE / SLUDGE METAL"
+    },
+    {
+      "id": 3931,
+      "date_from_iso8601": "2025-08-06T23:30:00",
+      "date_to_iso8601": "2025-08-07T00:30:00",
+      "artist_name": "KERRY KING",
+      "genre": "THRASH METAL"
+    },
+    {
+      "id": 3937,
+      "date_from_iso8601": "2025-08-07T10:30:00",
+      "date_to_iso8601": "2025-08-07T11:00:00",
+      "artist_name": "MAMMOTH GRINDER",
+      "genre": "DEATH METAL / HARDCORE"
+    },
+    {
+      "id": 3939,
+      "date_from_iso8601": "2025-08-07T11:40:00",
+      "date_to_iso8601": "2025-08-07T12:15:00",
+      "artist_name": "GUTSLIT",
+      "genre": "BRUTAL DEATH METAL"
+    },
+    {
+      "id": 3941,
+      "date_from_iso8601": "2025-08-07T13:00:00",
+      "date_to_iso8601": "2025-08-07T13:35:00",
+      "artist_name": "CAR BOMB",
+      "genre": "MATH METAL / MATHCORE"
+    },
+    {
+      "id": 3943,
+      "date_from_iso8601": "2025-08-07T14:20:00",
+      "date_to_iso8601": "2025-08-07T15:00:00",
+      "artist_name": "GREEN LUNG",
+      "genre": "STONER / DOOM METAL"
+    },
+    {
+      "id": 3947,
+      "date_from_iso8601": "2025-08-07T15:55:00",
+      "date_to_iso8601": "2025-08-07T16:40:00",
+      "artist_name": "GUTALAX",
+      "genre": "GOREGRIND"
+    },
+    {
+      "id": 3950,
+      "date_from_iso8601": "2025-08-07T17:35:00",
+      "date_to_iso8601": "2025-08-07T18:30:00",
+      "artist_name": "SUFFOCATION",
+      "genre": "TECHNICAL BRUTAL DEATH METAL"
+    },
+    {
+      "id": 3956,
+      "date_from_iso8601": "2025-08-07T19:40:00",
+      "date_to_iso8601": "2025-08-07T20:40:00",
+      "artist_name": "LEPROUS",
+      "genre": "PROGRESSIVE ROCK / METAL"
+    },
+    {
+      "id": 3963,
+      "date_from_iso8601": "2025-08-07T21:50:00",
+      "date_to_iso8601": "2025-08-07T23:10:00",
+      "artist_name": "GOJIRA",
+      "genre": "THRASH / DEATH / MATH / GROOVE / PROGRESSIVE / POST-METAL"
+    },
+    {
+      "id": 3970,
+      "date_from_iso8601": "2025-08-08T00:30:00",
+      "date_to_iso8601": "2025-08-08T01:30:00",
+      "artist_name": "FEAR FACTORY",
+      "genre": "INDUSTRIAL METAL"
+    },
+    {
+      "id": 3975,
+      "date_from_iso8601": "2025-08-08T11:05:00",
+      "date_to_iso8601": "2025-08-08T11:40:00",
+      "artist_name": "ANGELMAKER",
+      "genre": "DEATHCORE"
+    },
+    {
+      "id": 3977,
+      "date_from_iso8601": "2025-08-08T12:25:00",
+      "date_to_iso8601": "2025-08-08T13:00:00",
+      "artist_name": "WITHIN DESTRUCTION",
+      "genre": "NU-DEATHCORE / METALCORE"
+    },
+    {
+      "id": 3979,
+      "date_from_iso8601": "2025-08-08T13:50:00",
+      "date_to_iso8601": "2025-08-08T14:30:00",
+      "artist_name": "ABBIE FALLS",
+      "genre": "PROGRESSIVE METALCORE / DEATHCORE"
+    },
+    {
+      "id": 3982,
+      "date_from_iso8601": "2025-08-08T15:20:00",
+      "date_to_iso8601": "2025-08-08T16:00:00",
+      "artist_name": "PRONG",
+      "genre": "THRASH / GROOVE METAL"
+    },
+    {
+      "id": 3986,
+      "date_from_iso8601": "2025-08-08T16:55:00",
+      "date_to_iso8601": "2025-08-08T17:45:00",
+      "artist_name": "HENTAI CORPORATION",
+      "genre": "ECCENTRIC CROSSOVER"
+    },
+    {
+      "id": 3991,
+      "date_from_iso8601": "2025-08-08T18:45:00",
+      "date_to_iso8601": "2025-08-08T19:40:00",
+      "artist_name": "OVERKILL",
+      "genre": "THRASH METAL"
+    },
+    {
+      "id": 4004,
+      "date_from_iso8601": "2025-08-08T23:05:00",
+      "date_to_iso8601": "2025-08-09T00:25:00",
+      "artist_name": "DIMMU BORGIR",
+      "genre": "SYMPHONIC BLACK METAL"
+    },
+    {
+      "id": 4013,
+      "date_from_iso8601": "2025-08-09T11:05:00",
+      "date_to_iso8601": "2025-08-09T11:40:00",
+      "artist_name": "CRYPTA",
+      "genre": "DEATH METAL"
+    },
+    {
+      "id": 4015,
+      "date_from_iso8601": "2025-08-09T12:25:00",
+      "date_to_iso8601": "2025-08-09T13:00:00",
+      "artist_name": "TO THE GRAVE",
+      "genre": "DEATHCORE"
+    },
+    {
+      "id": 4017,
+      "date_from_iso8601": "2025-08-09T13:50:00",
+      "date_to_iso8601": "2025-08-09T14:30:00",
+      "artist_name": "EXHORDER",
+      "genre": "THRASH METAL / GROOVE"
+    },
+    {
+      "id": 4020,
+      "date_from_iso8601": "2025-08-09T15:20:00",
+      "date_to_iso8601": "2025-08-09T16:00:00",
+      "artist_name": "ATTILA",
+      "genre": "PARTY-CORE, METALCORE, DEATHCORE"
+    },
+    {
+      "id": 4024,
+      "date_from_iso8601": "2025-08-09T16:55:00",
+      "date_to_iso8601": "2025-08-09T17:45:00",
+      "artist_name": "UNLEASHED",
+      "genre": "DEATH METAL / VIKING DEATH METAL"
+    },
+    {
+      "id": 4029,
+      "date_from_iso8601": "2025-08-09T18:45:00",
+      "date_to_iso8601": "2025-08-09T19:45:00",
+      "artist_name": "KATAKLYSM",
+      "genre": "MELODIC DEATH METAL"
+    },
+    {
+      "id": 4037,
+      "date_from_iso8601": "2025-08-09T21:00:00",
+      "date_to_iso8601": "2025-08-09T22:05:00",
+      "artist_name": "KARNIVOOL",
+      "genre": "PROGRESSIVE METAL"
+    },
+    {
+      "id": 4044,
+      "date_from_iso8601": "2025-08-09T23:30:00",
+      "date_to_iso8601": "2025-08-10T00:30:00",
+      "artist_name": "THE HALO EFFECT",
+      "genre": "MELODIC DEATH METAL"
+    }
+  ],
+  "Octagon": [
+    {
+      "id": 3916,
+      "date_from_iso8601": "2025-08-06T18:30:00",
+      "date_to_iso8601": "2025-08-06T19:15:00",
+      "artist_name": "INTER ARMA",
+      "genre": "SLUDGE / BLACK / DEATH / POST-METAL"
+    },
+    {
+      "id": 3919,
+      "date_from_iso8601": "2025-08-06T19:45:00",
+      "date_to_iso8601": "2025-08-06T20:30:00",
+      "artist_name": "FRAYLE",
+      "genre": "DOOM POP METAL"
+    },
+    {
+      "id": 3923,
+      "date_from_iso8601": "2025-08-06T21:00:00",
+      "date_to_iso8601": "2025-08-06T22:00:00",
+      "artist_name": "ZEMIAL",
+      "genre": "BLACK METAL / PROGRESSIVE BLACK METAL"
+    },
+    {
+      "id": 3928,
+      "date_from_iso8601": "2025-08-06T22:30:00",
+      "date_to_iso8601": "2025-08-06T23:30:00",
+      "artist_name": "RUÏM",
+      "genre": "BLACK METAL"
+    },
+    {
+      "id": 3952,
+      "date_from_iso8601": "2025-08-07T18:30:00",
+      "date_to_iso8601": "2025-08-07T19:15:00",
+      "artist_name": "CRYPT SERMON",
+      "genre": "EPIC DOOM METAL"
+    },
+    {
+      "id": 3957,
+      "date_from_iso8601": "2025-08-07T19:45:00",
+      "date_to_iso8601": "2025-08-07T20:30:00",
+      "artist_name": "XIII. STOLETí",
+      "genre": "GOTHIC ROCK"
+    },
+    {
+      "id": 3961,
+      "date_from_iso8601": "2025-08-07T21:00:00",
+      "date_to_iso8601": "2025-08-07T21:50:00",
+      "artist_name": "WAYFARER",
+      "genre": "ATMOSPHERIC BLACK / FOLK METAL"
+    },
+    {
+      "id": 3965,
+      "date_from_iso8601": "2025-08-07T22:30:00",
+      "date_to_iso8601": "2025-08-07T23:30:00",
+      "artist_name": "PATRIARCHY",
+      "genre": "INDUSTRIAL METAL / ELECTRONIC"
+    },
+    {
+      "id": 3989,
+      "date_from_iso8601": "2025-08-08T18:30:00",
+      "date_to_iso8601": "2025-08-08T19:15:00",
+      "artist_name": "MALIGNANCY",
+      "genre": "BRUTAL TECHNICAL DEATH METAL"
+    },
+    {
+      "id": 3993,
+      "date_from_iso8601": "2025-08-08T19:45:00",
+      "date_to_iso8601": "2025-08-08T20:30:00",
+      "artist_name": "FIVE THE HIEROPHANT",
+      "genre": "BLACK / DOOM / POST-METAL"
+    },
+    {
+      "id": 3998,
+      "date_from_iso8601": "2025-08-08T21:00:00",
+      "date_to_iso8601": "2025-08-08T21:50:00",
+      "artist_name": "PYRRHON",
+      "genre": "EXPERIMENTAL DEATH METAL"
+    },
+    {
+      "id": 4002,
+      "date_from_iso8601": "2025-08-08T22:30:00",
+      "date_to_iso8601": "2025-08-08T23:30:00",
+      "artist_name": "REPLICANT",
+      "genre": "TECHNICAL / AVANT-GARDE DEATH METAL"
+    },
+    {
+      "id": 4028,
+      "date_from_iso8601": "2025-08-09T18:30:00",
+      "date_to_iso8601": "2025-08-09T19:15:00",
+      "artist_name": "GADGET",
+      "genre": "GRINDCORE / DEATHMETAL / HARDCORE PUNK / DOOM"
+    },
+    {
+      "id": 4032,
+      "date_from_iso8601": "2025-08-09T19:45:00",
+      "date_to_iso8601": "2025-08-09T20:30:00",
+      "artist_name": "KLIDAS",
+      "genre": "PSYCHEDELIC ROCK"
+    },
+    {
+      "id": 4035,
+      "date_from_iso8601": "2025-08-09T21:00:00",
+      "date_to_iso8601": "2025-08-09T22:00:00",
+      "artist_name": "ALUK TODOLO",
+      "genre": "OCCULT ROCK"
+    },
+    {
+      "id": 4041,
+      "date_from_iso8601": "2025-08-09T22:30:00",
+      "date_to_iso8601": "2025-08-09T23:30:00",
+      "artist_name": "PRIEST",
+      "genre": "DARK SYNTHWAVE"
+    }
+  ],
+  "KAL stage": [
+    {
+      "id": 3915,
+      "date_from_iso8601": "2025-08-06T18:30:00",
+      "date_to_iso8601": "2025-08-06T19:20:00",
+      "artist_name": "FAUN FABLES",
+      "genre": "DARKFOLK / PSYCHEDELIC ROCK"
+    },
+    {
+      "id": 3920,
+      "date_from_iso8601": "2025-08-06T20:00:00",
+      "date_to_iso8601": "2025-08-06T20:45:00",
+      "artist_name": "ANDY THE DOORBUM",
+      "genre": "EXPERIMENTAL FOLK / RITUAL / PERFORMANCE"
+    },
+    {
+      "id": 3925,
+      "date_from_iso8601": "2025-08-06T21:30:00",
+      "date_to_iso8601": "2025-08-06T22:20:00",
+      "artist_name": "MALA HERBA",
+      "genre": "SYNTH WITCHCRAFT"
+    },
+    {
+      "id": 3929,
+      "date_from_iso8601": "2025-08-06T23:00:00",
+      "date_to_iso8601": "2025-08-06T23:59:00",
+      "artist_name": "MIRUSI MERGINA",
+      "genre": "AVANTGARDE / NOISE / COSMIC HORROR"
+    },
+    {
+      "id": 3932,
+      "date_from_iso8601": "2025-08-07T00:30:00",
+      "date_to_iso8601": "2025-08-07T01:15:00",
+      "artist_name": "THRASH COBRA",
+      "genre": "SYNTHWAVE"
+    },
+    {
+      "id": 3935,
+      "date_from_iso8601": "2025-08-07T01:30:00",
+      "date_to_iso8601": "2025-08-07T03:30:00",
+      "artist_name": "COMPUTERBOY",
+      "genre": "SYNTHWAVE / DARKSYNTH"
+    },
+    {
+      "id": 3953,
+      "date_from_iso8601": "2025-08-07T18:30:00",
+      "date_to_iso8601": "2025-08-07T19:20:00",
+      "artist_name": "DUNKELBOT",
+      "genre": "DUNGEON SYNTH"
+    },
+    {
+      "id": 3958,
+      "date_from_iso8601": "2025-08-07T20:00:00",
+      "date_to_iso8601": "2025-08-07T20:40:00",
+      "artist_name": "MÖBIUS",
+      "genre": "STONER / DOOM / SLUDGE / INSTRUMENTAL"
+    },
+    {
+      "id": 3962,
+      "date_from_iso8601": "2025-08-07T21:30:00",
+      "date_to_iso8601": "2025-08-07T22:30:00",
+      "artist_name": "MAI MAI MAI",
+      "genre": "AMBIENT / AVANTGARDE / RITUAL"
+    },
+    {
+      "id": 3966,
+      "date_from_iso8601": "2025-08-07T23:00:00",
+      "date_to_iso8601": "2025-08-07T23:59:00",
+      "artist_name": "DOUBLE DARKNESS",
+      "genre": "DARKWAVE / POST-PUNK / DARK AMBIENT"
+    },
+    {
+      "id": 3969,
+      "date_from_iso8601": "2025-08-08T00:00:00",
+      "date_to_iso8601": "2025-08-08T01:30:00",
+      "artist_name": "PAVEL ZELINKA",
+      "genre": "DARKWAVE / GOTHIC ROCK / POST-PUNK"
+    },
+    {
+      "id": 3972,
+      "date_from_iso8601": "2025-08-08T01:30:00",
+      "date_to_iso8601": "2025-08-08T03:30:00",
+      "artist_name": "EVIL DUST",
+      "genre": "INDUSTRIAL TECHNO / EBM / ELECTRONIC"
+    },
+    {
+      "id": 3990,
+      "date_from_iso8601": "2025-08-08T18:30:00",
+      "date_to_iso8601": "2025-08-08T19:10:00",
+      "artist_name": "LUGOLA",
+      "genre": "NOISE / INDUSTRIAL / POWER ELECTRONICS"
+    },
+    {
+      "id": 3995,
+      "date_from_iso8601": "2025-08-08T20:15:00",
+      "date_to_iso8601": "2025-08-08T21:00:00",
+      "artist_name": "SWEEPS 04",
+      "genre": "AMBIENT / DRONE DOOM"
+    },
+    {
+      "id": 3999,
+      "date_from_iso8601": "2025-08-08T21:30:00",
+      "date_to_iso8601": "2025-08-08T22:30:00",
+      "artist_name": "HACKEDEPICCIOTTO",
+      "genre": "EXPERIMENTAL / POST-INDUSTRIAL / DRONE"
+    },
+    {
+      "id": 4003,
+      "date_from_iso8601": "2025-08-08T22:50:00",
+      "date_to_iso8601": "2025-08-08T23:30:00",
+      "artist_name": "VYšEHRAD",
+      "genre": "LOFI BLACKMETAL / DARK AMBIENT / DUNGEON SYNTH"
+    },
+    {
+      "id": 4006,
+      "date_from_iso8601": "2025-08-09T00:00:00",
+      "date_to_iso8601": "2025-08-09T00:00:00",
+      "artist_name": "SILKSKIN",
+      "genre": "HEAVY ELECTRONICS / LOFI PUNK / HASH NOISE"
+    },
+    {
+      "id": 4009,
+      "date_from_iso8601": "2025-08-09T01:00:00",
+      "date_to_iso8601": "2025-08-09T02:00:00",
+      "artist_name": "BHPL",
+      "genre": "EBM / ACID TECHNO / HARSH"
+    },
+    {
+      "id": 4011,
+      "date_from_iso8601": "2025-08-09T02:00:00",
+      "date_to_iso8601": "2025-08-09T03:30:00",
+      "artist_name": "M4NUS",
+      "genre": "DIGITAL HARDCORE / INDUSTRIAL / TECHNO"
+    },
+    {
+      "id": 4027,
+      "date_from_iso8601": "2025-08-09T18:30:00",
+      "date_to_iso8601": "2025-08-09T19:10:00",
+      "artist_name": "BLOODPACT",
+      "genre": "SYNTH METAL / WITCH HOUSE / NOISE"
+    },
+    {
+      "id": 4031,
+      "date_from_iso8601": "2025-08-09T19:45:00",
+      "date_to_iso8601": "2025-08-09T20:30:00",
+      "artist_name": "MOAAN EXIS",
+      "genre": "INDUSTRIAL METAL / ELECTRONIC / INDUSTRIAL"
+    },
+    {
+      "id": 4036,
+      "date_from_iso8601": "2025-08-09T21:00:00",
+      "date_to_iso8601": "2025-08-09T21:45:00",
+      "artist_name": "THE COST",
+      "genre": "NOISE DRONE, WICH HOUSE, INDUSTRIAL"
+    },
+    {
+      "id": 4039,
+      "date_from_iso8601": "2025-08-09T22:00:00",
+      "date_to_iso8601": "2025-08-09T22:50:00",
+      "artist_name": "TRAUMATORR",
+      "genre": "NOISE / EBM / ACID"
+    },
+    {
+      "id": 4043,
+      "date_from_iso8601": "2025-08-09T23:20:00",
+      "date_to_iso8601": "2025-08-10T00:20:00",
+      "artist_name": "OPERANT",
+      "genre": "NOISE / GABBER TECHNO / INDUSTRIAL TRAP"
+    },
+    {
+      "id": 4045,
+      "date_from_iso8601": "2025-08-10T00:30:00",
+      "date_to_iso8601": "2025-08-10T03:30:00",
+      "artist_name": "BRUT RAPTOR",
+      "genre": "BREAKCORE / NOISE /HARDCORE TECHNO"
+    }
+  ]
+}
