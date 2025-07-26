@@ -1,1 +1,1 @@
-Running on https://ba.rammelkruid.nl
+Running on https://brutal.help
