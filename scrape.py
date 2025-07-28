@@ -135,7 +135,8 @@ def main():
         stages_data = extract_schedule_info(raw_data)
 
         if stages_data:
-            result_json = stages_data
+            rearranged =  {key: stages_data[key] for key in ['Marshall', 'Sea Shepherd', 'Obscure', 'Octagon', 'KAL stage']}
+            result_json = rearranged
             
             print(f"\nExtracted data for {len(stages_data)} stages.")
             print("Information in JSON format (showing structure):")

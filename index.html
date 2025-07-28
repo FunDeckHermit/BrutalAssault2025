@@ -22,7 +22,6 @@
             flex-direction: column;
             height: 100vh; /* Ensure body takes full height */
         }
-
         /* Style for the star symbol */
         .star-symbol {
             color: #ffcc00; /* Gold color */
@@ -30,7 +29,6 @@
             font-size: 1.2em;
             text-shadow: 0 0 2px rgba(0,0,0,0.3);
         }
-
         /* Style for the warning symbol */
         .warning-symbol {
             color: #ff6666; /* Red color */
@@ -38,7 +36,6 @@
             font-size: 1.2em;
             animation: pulse 2s infinite; /* Optional pulsing animation */
         }
-
         .container {
             width: 100%;
             max-width: 1200px;
@@ -112,7 +109,31 @@
             background: rgba(50, 0, 0, 0.95);
             transform: scale(1.1);
         }
-        /* --- End of Restore Header Icon --- */
+        /* --- Download Favorites Icon --- */
+        .download-favorites-icon {
+            position: fixed;
+            top: 15px;
+            left: 15px; /* Positioned on the left */
+            background: rgba(30, 0, 0, 0.9);
+            border: 1px solid rgba(100, 255, 100, 0.3); /* Slightly different border color */
+            color: #66ff66; /* Greenish color */
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 100, 0, 0.3); /* Slightly different shadow */
+            z-index: 1000;
+            transition: all 0.2s ease;
+        }
+        .download-favorites-icon:hover {
+            background: rgba(50, 30, 30, 0.95); /* Slightly different hover background */
+            transform: scale(1.1);
+        }
+        /* --- End of Download Favorites Icon --- */
         /* --- New Static Next Favorite Bar --- */
         .next-favorite-bar {
             background: rgba(30, 0, 0, 0.9); /* Slightly different background */
@@ -211,7 +232,6 @@
             text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
             flex-grow: 1;
         }
-
         /* --- Stage-Specific Color Schemes --- */
         /* Stage 1 - Muted Blue */
         .stage-card.stage-1 .stage-header {
@@ -320,8 +340,6 @@
             background: rgba(50, 60, 70, 0.4);
             border-color: rgba(120, 140, 160, 0.3);
         }
-
-
         /* Stage 2 - Muted Green */
         .stage-card.stage-2 .stage-header {
             border-bottom-color: rgba(120, 180, 120, 0.5);
@@ -429,8 +447,6 @@
             background: rgba(50, 70, 50, 0.4);
             border-color: rgba(120, 170, 120, 0.3);
         }
-
-
         /* Stage 3 - Muted Purple */
         .stage-card.stage-3 .stage-header {
             border-bottom-color: rgba(180, 120, 200, 0.5);
@@ -538,8 +554,6 @@
             background: rgba(70, 50, 75, 0.4);
             border-color: rgba(170, 120, 190, 0.3);
         }
-
-
         /* Stage 4 - Muted Orange */
         .stage-card.stage-4 .stage-header {
             border-bottom-color: rgba(220, 150, 100, 0.5);
@@ -647,8 +661,6 @@
             background: rgba(80, 60, 45, 0.4);
             border-color: rgba(200, 140, 100, 0.3);
         }
-
-
         /* Stage 5 - Muted Teal */
         .stage-card.stage-5 .stage-header {
             border-bottom-color: rgba(100, 180, 180, 0.5);
@@ -1027,6 +1039,11 @@
              .next-favorite-content-static {
                  font-size: 0.8rem;
              }
+             /* Adjust download icon position for short screens if needed */
+             .download-favorites-icon {
+                 top: 10px;
+                 left: 10px;
+             }
         }
         /* --- End of Short Screen Rules --- */
         @media (min-width: 768px) {
@@ -1079,6 +1096,12 @@
                 font-size: 1.1rem;
             }
             /* --- End of Desktop Styles for Static Next Favorite Bar --- */
+            /* --- Desktop Styles for Download Icon --- */
+            .download-favorites-icon {
+                top: 20px;
+                left: 20px;
+            }
+            /* --- End of Desktop Styles for Download Icon --- */
             .performance-item {
                 padding: 12px 15px;
                 margin-bottom: 12px;
@@ -1171,11 +1194,21 @@
                  .next-favorite-content-static {
                      font-size: 0.9rem;
                  }
+                 .download-favorites-icon {
+                     top: 15px;
+                     left: 15px;
+                 }
             }
         }
     </style>
 </head>
 <body>
+    <!-- Download Favorites Icon -->
+    <a class="download-favorites-icon" id="downloadFavoritesIcon" title="Download Favorites" href="#" download="favorites.txt">
+        📥 <!-- Unicode download icon -->
+    </a>
+    <!-- End Download Favorites Icon -->
+
     <!-- Static Next Favorite Bar -->
     <div class="next-favorite-bar" id="nextFavoriteBar">
          <div class="next-favorite-label-static">★</div>
@@ -1184,11 +1217,13 @@
          </div>
     </div>
     <!-- End Static Next Favorite Bar -->
+
     <!-- Restore Header Icon (Hidden by default) -->
     <div class="restore-header-icon" id="restoreHeaderIcon" title="Restore Header" style="display: none;">
         ↺
     </div>
     <!-- End Restore Header Icon -->
+
     <div class="container">
         <header id="mainHeader">
             <button class="header-close-btn" id="closeHeaderBtn" title="Close Header">×</button>
@@ -1467,6 +1502,62 @@
             }
         }
         // --- End of New Navigation Function ---
+
+        // --- New Function: Generate Favorites Text (Updated Format) ---
+        function generateFavoritesText() {
+            let textContent = "";
+            const now = new Date();
+            let favoriteList = [];
+
+            // Collect all favorite performances with their details
+            for (const [stageName, performances] of Object.entries(festivalData)) {
+                const filteredPerformances = filterPerformances(performances);
+                filteredPerformances.forEach(performance => {
+                    if (favoritePerformances.has(performance.id)) {
+                        const performanceStart = new Date(performance.date_from_iso8601);
+                        const performanceEnd = new Date(performance.date_to_iso8601);
+
+                        // Format the line: Date Time - End Time (Stage) - Artist Name
+                        const line = `${formatDate(performance.date_from_iso8601)} ${formatTime(performance.date_from_iso8601)} - ${formatTime(performance.date_to_iso8601)} (${stageName}) - ${performance.artist_name}`;
+                        favoriteList.push({
+                            start: performanceStart,
+                            text: line
+                        });
+                    }
+                });
+            }
+
+            // Sort favorites by start time
+            favoriteList.sort((a, b) => a.start - b.start);
+
+            // Join the sorted lines with newlines
+            textContent = favoriteList.map(item => item.text).join('\n');
+
+            // If no favorites, provide a message
+            if (textContent === "") {
+                textContent = "No favorite performances selected.";
+            }
+
+            return textContent;
+        }
+        // --- End of New Function ---
+
+        // --- New Function: Update Download Link ---
+        function updateDownloadLink() {
+            const downloadIcon = document.getElementById('downloadFavoritesIcon');
+            if (downloadIcon) {
+                const textContent = generateFavoritesText();
+                const blob = new Blob([textContent], { type: 'text/plain;charset=utf-8' });
+                const url = URL.createObjectURL(blob);
+
+                // Update the href attribute of the download link
+                downloadIcon.href = url;
+                // Ensure the download attribute is set correctly
+                downloadIcon.download = 'favorites.txt';
+            }
+        }
+        // --- End of New Function ---
+
         // Function to find the next favorite performance
         function findNextFavorite() {
             const now = new Date();
@@ -1590,6 +1681,8 @@
                     }
                 });
             }
+            // Update the download link whenever conflicts or favorites change
+            updateDownloadLink();
         }
         // Function to toggle favorite status
         function toggleFavorite(performanceId, element, stageName) {
@@ -1607,19 +1700,19 @@
             updateConflictIndicators();
             // Update the STATIC next favorite display
             updateStaticNextFavoriteDisplay();
+            // Update the download link
+            updateDownloadLink();
         }
         // Function to create stage cards (REMOVED next-favorite from here)
         function createStageCard(stageName, performances) {
             const stageCard = document.createElement('div');
             stageCard.className = 'stage-card';
-
             // --- Add Stage-Specific Class ---
             // Map stage names to indices (1-10) for color schemes
             // This assumes stage names are consistent and ordered
             const stageIndex = stageNames.indexOf(stageName) %5 + 1; // Modulo 5 to cycle if >5 stages
             stageCard.classList.add(`stage-${stageIndex}`);
             // --- End Add Stage-Specific Class ---
-
             // Get first letter for icon
             const iconLetter = stageName.charAt(0);
             // Filter performances
@@ -1819,6 +1912,8 @@
             setTimeout(updateConflictIndicators, 100);
             // Adjust container height after rendering to account for initial header state
             setTimeout(adjustContainerHeight, 100);
+            // Update the download link after rendering
+            setTimeout(updateDownloadLink, 150);
         }
         // Load schedule data
         async function loadSchedule() {
@@ -1846,12 +1941,15 @@
             document.getElementById('stageCardsContainer').innerHTML = '<div class="loading">Error loading schedule. Please try again later.</div>';
             // Also update the static display on error
             document.getElementById('staticNextFavoriteContent').textContent = 'Error loading favorites.';
+            // Update download link on error as well (will show "No favorites...")
+            updateDownloadLink();
         }
         }
         // Initialize the page
         document.addEventListener('DOMContentLoaded', () => {
             // Load favorites from cookie
             loadFavoritesFromCookie();
+
             // --- Check and Apply Header State from Cookie ---
             if (isHeaderHidden()) {
                 // Hide header and show restore icon on initial load if cookie says so
@@ -1863,20 +1961,25 @@
                 }
             }
             // --- End of Header State Check ---
+
             // Load schedule data
             loadSchedule();
+
             // Add swipe event listeners
             const swipeContainer = document.querySelector('.swipe-container');
             swipeContainer.addEventListener('touchstart', handleTouchStart, false);
             swipeContainer.addEventListener('touchmove', handleTouchMove, { passive: false });
             swipeContainer.addEventListener('touchend', handleTouchEnd, false);
+
             // Add keyboard navigation
             document.addEventListener('keydown', handleKeyDown);
+
             // --- Add Click Listener to Next Favorite Bar ---
             const nextFavoriteBar = document.getElementById('nextFavoriteBar');
             if (nextFavoriteBar) {
                 nextFavoriteBar.addEventListener('click', navigateToNextFavorite);
             }
+
             // --- Add Click Listener to Close Header Button ---
             const closeHeaderBtn = document.getElementById('closeHeaderBtn');
             if (closeHeaderBtn) {
@@ -1885,10 +1988,23 @@
                     hideHeader();
                 });
             }
+
             // --- Add Click Listener to Restore Header Icon ---
             const restoreHeaderIcon = document.getElementById('restoreHeaderIcon');
             if (restoreHeaderIcon) {
                 restoreHeaderIcon.addEventListener('click', showHeader);
+            }
+
+            // --- Add Click Listener to Download Favorites Icon ---
+            const downloadIcon = document.getElementById('downloadFavoritesIcon');
+            if (downloadIcon) {
+                downloadIcon.addEventListener('click', (e) => {
+                    // Update the link just before download in case favorites changed
+                    updateDownloadLink();
+                    // Optional: Provide feedback or delay if needed
+                    // e.preventDefault();
+                    // setTimeout(() => { downloadIcon.click(); }, 100);
+                });
             }
             // --- End of Click Listeners ---
         });
